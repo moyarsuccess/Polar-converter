@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.npm/
+.pnp
+.pnp.js
+
+# Build / packaging output (electron-builder)
+dist/
+build/Release/
+out/
+*.dmg
+*.dmg.blockmap
+*.exe
+*.AppImage
+*.deb
+*.rpm
+*.snap
+
+# Bundled ffmpeg binaries (fetched via `npm run fetch-ffmpeg`, not committed).
+# The folder + its README are kept; only the large binaries are ignored.
+resources/bin/ffmpeg
+resources/bin/ffmpeg.exe
+resources/bin/ffprobe
+resources/bin/ffprobe.exe
+
+# Test / coverage output
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini

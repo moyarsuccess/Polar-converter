@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+  <title>Media Converter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Drag region gives the traffic lights room on macOS -->
+    <div class="titlebar-drag"></div>
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="assets/logo.png" alt="Media Converter" />
+        </div>
+        <div class="brand-text">
+          <h1>Media Converter</h1>
+          <span>MP4 · MKV · WebM · AVI · MPEG · WAV · MP3 · FLAC · Opus</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button id="logToggle" class="ghost-btn small" title="Show engine log">
+          <svg viewBox="0 0 24 24" width="15" height="15"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Engine log
+        </button>
+        <div class="theme-switch" role="group" aria-label="Theme">
+          <button data-theme-btn="light" title="Light">
+            <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="1.6"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="6.8" y2="6.8"/><line x1="17.2" y1="17.2" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="6.8" y2="17.2"/><line x1="17.2" y1="6.8" x2="19.1" y2="4.9"/></g></svg>
+          </button>
+          <button data-theme-btn="system" title="Follow system">
+            <svg viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <button data-theme-btn="dark" title="Dark">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Body: two columns -->
+    <div class="body">
+      <!-- LEFT: files -->
+      <div class="col-left">
+        <section id="dropzone" class="dropzone">
+          <div class="dz-inner">
+            <div class="dz-icon">
+              <svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 16V4m0 0l-4 4m4-4l4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h2>Drop media here</h2>
+            <p>or <button id="browseBtn" class="link-btn">browse files</button></p>
+          </div>
+        </section>
+
+        <div class="filelist-wrap">
+          <ul id="fileList" class="filelist"></ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: settings -->
+      <aside class="col-right" id="settingsPanel">
+        <div class="settings-scroll">
+
+          <!-- Preview -->
+          <div class="preview" id="preview">
+            <div class="preview-empty" id="previewEmpty">Select a file to preview</div>
+            <img id="previewImg" alt="" hidden />
+            <div class="preview-meta" id="previewMeta"></div>
+          </div>
+
+          <!-- Presets -->
+          <div class="card">
+            <label class="card-label">Preset</label>
+            <div class="row">
+              <select id="presetSelect" class="select"></select>
+              <button id="savePresetBtn" class="ghost-btn small" title="Save current settings as a preset">Save</button>
+              <button id="delPresetBtn" class="ghost-btn small" title="Delete selected custom preset">✕</button>
+            </div>
+          </div>
+
+          <!-- Format -->
+          <div class="card">
+            <label class="card-label">Output format</label>
+            <div class="format-pills" id="formatPills"></div>
+          </div>
+
+          <!-- Codecs -->
+          <div class="card" id="codecCard">
+            <label class="card-label">Codecs</label>
+            <div class="field" id="videoCodecField">
+              <span class="field-label">Video</span>
+              <select id="videoCodec" class="select"></select>
+            </div>
+            <div class="field">
+              <span class="field-label">Audio</span>
+              <select id="audioCodec" class="select"></select>
+            </div>
+            <div class="field" id="hwField">
+              <span class="field-label">Hardware</span>
+              <select id="hwAccel" class="select"></select>
+            </div>
+          </div>
+
+          <!-- Quality -->
+          <div class="card" id="qualityCard">
+            <label class="card-label">Quality</label>
+            <div class="seg" id="qualityMode">
+              <button data-qmode="crf" class="active">Constant quality</button>
+              <button data-qmode="bitrate">Average bitrate</button>
+            </div>
+            <div id="crfWrap" class="field">
+              <span class="field-label">CRF <b id="crfVal">23</b></span>
+              <input id="crf" type="range" min="0" max="51" value="23" class="range" />
+            </div>
+            <div id="vbWrap" class="field hidden">
+              <span class="field-label">Video kbps</span>
+              <input id="videoBitrate" type="number" value="4000" min="100" step="100" class="input" />
+            </div>
+            <div class="field" id="speedField">
+              <span class="field-label">Speed</span>
+              <select id="speed" class="select">
+                <option value="ultrafast">Ultrafast</option>
+                <option value="veryfast">Very fast</option>
+                <option value="fast">Fast</option>
+                <option value="medium" selected>Medium</option>
+                <option value="slow">Slow</option>
+                <option value="veryslow">Very slow (best)</option>
+              </select>
+            </div>
+            <div class="field" id="abField">
+              <span class="field-label">Audio kbps</span>
+              <select id="audioBitrate" class="select">
+                <option>96</option><option>128</option><option selected>192</option><option>256</option><option>320</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Frame rate & scale -->
+          <div class="card videoOnly">
+            <label class="card-label">Video</label>
+            <div class="field">
+              <span class="field-label">Resolution</span>
+              <select id="scaleHeight" class="select">
+                <option value="source" selected>Source</option>
+                <option value="2160">2160p (4K)</option>
+                <option value="1440">1440p</option>
+                <option value="1080">1080p</option>
+                <option value="720">720p</option>
+                <option value="480">480p</option>
+                <option value="360">360p</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="field-label">Frame rate</span>
+              <select id="fpsMode" class="select">
+                <option value="source" selected>Source</option>
+                <option value="vfr">Variable (VFR)</option>
+                <option value="cfr">Constant…</option>
+              </select>
+            </div>
+            <div class="field hidden" id="fpsWrap">
+              <span class="field-label">FPS</span>
+              <select id="fps" class="select">
+                <option>23.976</option><option>24</option><option>25</option><option selected>30</option><option>50</option><option>60</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Trim -->
+          <div class="card videoOnly">
+            <label class="card-label">Trim</label>
+            <div class="row">
+              <div class="field grow"><span class="field-label">Start (s)</span><input id="trimStart" type="number" min="0" step="1" placeholder="0" class="input" /></div>
+              <div class="field grow"><span class="field-label">End (s)</span><input id="trimEnd" type="number" min="0" step="1" placeholder="end" class="input" /></div>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="card videoOnly">
+            <label class="card-label">Filters</label>
+            <div class="field">
+              <span class="field-label">Deinterlace</span>
+              <select id="deinterlace" class="select">
+                <option value="off" selected>Off</option>
+                <option value="yadif">Deinterlace (yadif)</option>
+                <option value="bwdif">Decomb (bwdif)</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="field-label">Denoise</span>
+              <select id="denoise" class="select">
+                <option value="off" selected>Off</option>
+                <option value="light">Light</option>
+                <option value="medium">Medium</option>
+                <option value="strong">Strong</option>
+              </select>
+            </div>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" id="detelecine" /> Detelecine</label>
+              <label class="chk"><input type="checkbox" id="deblock" /> Deblock</label>
+              <label class="chk"><input type="checkbox" id="grayscale" /> Grayscale</label>
+              <label class="chk"><input type="checkbox" id="colorspace" /> BT.709</label>
+            </div>
+          </div>
+
+          <!-- Subtitles & advanced -->
+          <div class="card videoOnly">
+            <label class="card-label">Subtitles &amp; advanced</label>
+            <div class="field">
+              <span class="field-label">Subtitles</span>
+              <select id="subMode" class="select">
+                <option value="none" selected>None</option>
+                <option value="passthru">Keep (pass-through)</option>
+                <option value="burn">Burn in from file…</option>
+              </select>
+            </div>
+            <div class="field hidden" id="subFileWrap">
+              <span class="field-label">File</span>
+              <button id="pickSubBtn" class="ghost-btn small grow" style="text-align:left">Choose subtitle…</button>
+            </div>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" id="copyChapters" checked /> Keep chapters</label>
+              <label class="chk"><input type="checkbox" id="hdrPassthru" /> HDR pass-thru</label>
+            </div>
+          </div>
+
+          <!-- Output folder -->
+          <div class="card">
+            <label class="card-label">Save to</label>
+            <div class="row">
+              <div class="output-path" id="outputPath" title="Same folder as each source file">Same folder as source</div>
+              <button id="chooseDirBtn" class="ghost-btn small">Choose…</button>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+
+    <!-- Action bar -->
+    <footer class="actionbar" id="actionbar">
+      <button id="clearBtn" class="ghost-btn small">Clear all</button>
+      <div class="spacer"></div>
+      <span id="summary" class="summary"></span>
+      <button id="convertBtn" class="primary-btn" disabled>Convert</button>
+    </footer>
+
+    <!-- Engine log dock (docked at the bottom, minimize / maximize inside window) -->
+    <section id="logDock" class="log-dock collapsed">
+      <div class="log-head" id="logHead">
+        <span class="log-dot"></span>
+        <span class="log-title">Engine log</span>
+        <span class="log-hint">Live FFmpeg output</span>
+        <span id="logCount" class="log-count"></span>
+        <div class="spacer"></div>
+        <button id="copyLogBtn" class="ghost-btn small">Copy</button>
+        <button id="clearLogBtn" class="ghost-btn small">Clear</button>
+        <button id="maxLogBtn" class="icon-btn" title="Maximize">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 9V4h5M20 15v5h-5M15 4h5v5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+        <button id="minLogBtn" class="icon-btn" title="Minimize / expand">
+          <svg id="minLogIcon" viewBox="0 0 24 24" width="16" height="16"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <pre id="logBody" class="log-body"></pre>
+    </section>
+  </div>
+
+  <script src="util.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

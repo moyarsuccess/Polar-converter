@@ -1,0 +1,70 @@
+{
+  "name": "media-converter",
+  "version": "1.0.0",
+  "description": "A sleek, modern desktop app to convert media between MP4, MPEG, WAV, MKV and AVI.",
+  "main": "main.js",
+  "author": "Moyar",
+  "license": "MIT",
+  "scripts": {
+    "fetch-ffmpeg": "node scripts/fetch-ffmpeg.js",
+    "postinstall": "node scripts/fetch-ffmpeg.js --copy-only || true",
+    "start": "electron .",
+    "predist": "node scripts/fetch-ffmpeg.js",
+    "dist": "electron-builder",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test"
+  },
+  "build": {
+    "appId": "com.moyar.mediaconverter",
+    "productName": "Media Converter",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "assets/**/*"
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**",
+      "node_modules/ffprobe-static/**"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/bin",
+        "to": "bin",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Utility",
+      "icon": "build/icon.png"
+    }
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0",
+    "fluent-ffmpeg": "^2.1.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "electron": "^43.0.0",
+    "electron-builder": "^26.15.3",
+    "jsdom": "^25.0.1",
+    "vitest": "^4.1.10"
+  }
+}
