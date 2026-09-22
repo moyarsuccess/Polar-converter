@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Business plan — a family concierge platform for the Iranian diaspora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#e7edf1; --card:#fdfefe; --sunk:#dde6ec;
+  --ink:#0e1b2a; --ink2:#4c6478; --rule:#c8d5de;
+  --lapis:#29529b; --turq:#14807f; --saffron:#a8700f; --madder:#9c2c3c;
+  --g:#14807f; --s:#a8700f; --x:#9c2c3c;
+  --g-soft:#d3e6e5; --s-soft:#f0e3c8; --x-soft:#f2d8dc;
+  --shadow:0 1px 0 rgba(14,27,42,.06), 0 8px 24px -16px rgba(14,27,42,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0b141c; --card:#131f29; --sunk:#0f1a23;
+    --ink:#e6eef2; --ink2:#95acbb; --rule:#25353f;
+    --lapis:#7ca4e6; --turq:#4fb3ad; --saffron:#dda944; --madder:#e08290;
+    --g:#4fb3ad; --s:#dda944; --x:#e08290;
+    --g-soft:#16383a; --s-soft:#39301a; --x-soft:#3a2328;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0b141c; --card:#131f29; --sunk:#0f1a23;
+  --ink:#e6eef2; --ink2:#95acbb; --rule:#25353f;
+  --lapis:#7ca4e6; --turq:#4fb3ad; --saffron:#dda944; --madder:#e08290;
+  --g:#4fb3ad; --s:#dda944; --x:#e08290;
+  --g-soft:#16383a; --s-soft:#39301a; --x-soft:#3a2328;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(58px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;font-size:16px;line-height:1.58}
+h1,h2,h3,h4{font-family:Spectral,Georgia,serif;font-weight:600;line-height:1.16;margin:0}
+h1{font-size:clamp(32px,6vw,58px);letter-spacing:-.015em}
+h2{font-size:clamp(24px,3.6vw,36px);margin-bottom:6px}
+h3{font-size:clamp(18px,2.2vw,21px);margin:26px 0 6px}
+h4{font-size:16px;font-family:"IBM Plex Sans",sans-serif;font-weight:600;margin-bottom:4px}
+p{margin:0 0 14px;max-width:70ch}
+ul{margin:0 0 16px;padding-left:20px;max-width:70ch}
+li{margin-bottom:6px}
+a{color:var(--lapis)}
+em{font-style:italic}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,44px)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding-top:env(safe-area-inset-top,0px)}
+.topbar .inner{max-width:1080px;margin:0 auto;padding:9px clamp(16px,4vw,44px);display:flex;gap:14px;align-items:center}
+.brandmark{font-family:Spectral,serif;font-weight:600;font-size:15px;white-space:nowrap}
+.brandmark span{color:var(--ink2);font-weight:400}
+.navscroll{overflow-x:auto;display:flex;gap:4px;scrollbar-width:none;-ms-overflow-style:none}
+.navscroll::-webkit-scrollbar{display:none}
+.navscroll a{font-size:12.5px;color:var(--ink2);text-decoration:none;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.navscroll a:hover{background:var(--sunk);color:var(--ink)}
+.navscroll a.here{background:var(--ink);color:var(--paper)}
+#prog{height:2px;background:var(--lapis);width:0%;transition:width .12s linear}
+
+/* hero */
+.hero{padding:clamp(40px,8vw,92px) 0 clamp(30px,5vw,54px)}
+.eyebrow{font-size:13px;color:var(--ink2);margin-bottom:18px}
+.hero h1{max-width:21ch}
+.hero .thesis{font-family:Spectral,serif;font-size:clamp(19px,2.6vw,25px);line-height:1.45;
+  color:var(--ink2);max-width:46ch;margin:22px 0 0}
+.hero .thesis b{color:var(--ink);font-weight:600}
+.statstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin-top:40px}
+.statstrip div{background:var(--card);padding:16px 15px}
+.statstrip .v{font-family:Spectral,serif;font-size:clamp(24px,3.4vw,32px);line-height:1}
+.statstrip .k{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.35}
+.fadein{opacity:0;transform:translateY(8px)}
+.fadein.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media (prefers-reduced-motion: reduce){.fadein,.fadein.in{opacity:1;transform:none;transition:none}}
+
+/* sections */
+section{padding:clamp(44px,7vw,86px) 0;border-top:1px solid var(--rule)}
+.sechead{display:flex;gap:16px;align-items:baseline;margin-bottom:22px}
+.secno{font-family:"IBM Plex Sans",sans-serif;font-size:13px;font-weight:600;color:var(--lapis);
+  padding-top:6px;min-width:26px}
+.lede{font-size:clamp(17px,2vw,19px);color:var(--ink2);max-width:60ch}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--rule);padding:20px;box-shadow:var(--shadow)}
+.card.t-g{border-top:3px solid var(--g)} .card.t-s{border-top:3px solid var(--s)}
+.card.t-x{border-top:3px solid var(--x)} .card.t-l{border-top:3px solid var(--lapis)}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.note{border-left:3px solid var(--saffron);background:var(--card);padding:14px 18px;margin:22px 0;max-width:74ch;font-size:15px}
+.note.warn{border-left-color:var(--madder)}
+.note.good{border-left-color:var(--turq)}
+.note b{font-weight:600}
+.small{font-size:13px;color:var(--ink2)}
+.src{font-size:12.5px;color:var(--ink2);font-style:italic;margin-top:10px;max-width:76ch}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px;background:var(--card)}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:12.5px;font-weight:600;color:var(--ink2)}
+tbody tr:hover{background:var(--sunk)}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:2px;white-space:nowrap}
+.tag.g{background:var(--g-soft);color:var(--g)} .tag.s{background:var(--s-soft);color:var(--s)}
+.tag.x{background:var(--x-soft);color:var(--x)}
+.pat{font-family:Spectral,serif;font-style:italic}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <div class="brandmark">Family concierge <span>· business plan v4</span></div>
+    <nav class="navscroll" id="nav"></nav>
+  </div>
+  <div id="prog"></div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow fadein">Business plan and operating model · September 2026 · proposal, not a forecast</p>
+  <h1 class="fadein">Everything they left behind in Iran, looked after by someone whose name you know.</h1>
+  <p class="thesis fadein">A subscription and on-demand concierge for the Iranian diaspora. <b>The child abroad pays in hard currency; the parent, the apartment and the paperwork in Iran get looked after.</b> Revenue never touches an Iranian bank.</p>
+  <div class="statstrip" id="heroStats">
+    <div><div class="v">129</div><div class="k">services catalogued across nine customer jobs</div></div>
+    <div><div class="v">1.0–1.6M</div><div class="k">households with a parent 65+ still in Iran</div></div>
+    <div><div class="v">$19–175</div><div class="k">proposed monthly tiers, plus one-off work</div></div>
+    <div><div class="v">€4,000</div><div class="k">capped pilot budget before any raise</div></div>
+    <div><div class="v">3</div><div class="k">Tehran care managers to reach break-even</div></div>
+  </div>
+</header>
+
+<section id="s1">
+  <div class="sechead"><div class="secno">01</div><div>
+    <h2>Executive summary</h2>
+    <p class="lede">Ten lines, then the honest caveats.</p>
+  </div></div>
+  <div class="grid2">
+    <div>
+      <h4>What it is</h4>
+      <p>A Canadian company that looks after what a migrant left behind in Iran: an ageing parent, an empty apartment, a pension nobody is chasing, a title deed, a grave. Trained care managers in Tehran do the work. The customer abroad sees photographs, receipts and reports in a dashboard, in Persian and English.</p>
+      <h4>Why now</h4>
+      <p>Somewhere between six and ten million Iranians live abroad, most of them in high-income countries, and the generation that emigrated in the 1980s and 1990s now has parents in their seventies. The alternative to this service is a cousin doing favours — unschedulable, unauditable, and socially expensive to ask twice.</p>
+      <h4>Why it is buildable</h4>
+      <p>The payer and the recipient sit in different countries. Billing happens entirely in Canada on standard card rails, so the business needs no Iranian payment gateway, no rial pricing and no insurance integration — the three things that stall most Iran-facing consumer ideas.</p>
+    </div>
+    <div>
+      <h4>How it makes money</h4>
+      <ul>
+        <li>Four subscription tiers, $19 to $175 a month, each with an always-on base plus separate monthly quotas by service class.</li>
+        <li>Overage at a published per-request rate that falls as the tier rises.</li>
+        <li>Property priced per door, not per family — the highest-margin line in the catalogue at roughly 86%.</li>
+        <li>One-off jobs and prepaid credit packs for the large share of buyers who will not subscribe to anything yet.</li>
+      </ul>
+      <h4>What has to be true</h4>
+      <ul>
+        <li>Roughly 15–20% of the diaspora has a parent over 65 still living in Iran. Unvalidated, and the most load-bearing number in the plan.</li>
+        <li>A Tehran care manager costs about $360 a month fully loaded with about 120 usable hours. Every margin figure moves with this.</li>
+        <li>The parent will accept a stranger in the house. Refusal churns the account inside 60 days.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note warn"><b>Read this document as a structure to argue with, not a price list to publish.</b> Market figures are order-of-magnitude estimates from public reporting, not commissioned research. Every price here is a proposal awaiting the validation work in section 17.</div>
+</section>
+
+<section id="s2">
+  <div class="sechead"><div class="secno">02</div><div>
+    <h2>The problem, in the customer's own words</h2>
+    <p class="lede">Nobody wakes up wanting a concierge platform. They wake up carrying a sentence that starts the same way every time.</p>
+  </div></div>
+  <p>The sentence is always the same shape: <em class="pat">the something I can't do from here</em>. It is the reason the whole product is named that way — categories, services and the menu all use the customer's phrasing instead of ours. Section 18 sets out the rules.</p>
+  <div class="grid3" style="margin-top:24px">
+    <div class="card t-l"><h4 class="pat">The call that tells me nothing</h4><p class="small">Friday, ten minutes, "everything's fine, don't worry." No information, and the worry survives the call intact.</p></div>
+    <div class="card t-l"><h4 class="pat">The appointment I can't sit in</h4><p class="small">The doctor spoke for eight minutes. What reaches the child abroad is a fragment, remembered wrong, with the prescription name missing.</p></div>
+    <div class="card t-l"><h4 class="pat">The cousin I've asked too many times</h4><p class="small">A favour can't be scheduled, audited or escalated, and the third ask costs more socially than the first.</p></div>
+    <div class="card t-l"><h4 class="pat">The 3am phone call</h4><p class="small">A fall, a hospital admission, and thirteen hours of flight time between the child and the ward. Nobody is at the door with the file.</p></div>
+    <div class="card t-l"><h4 class="pat">The flat I haven't seen in nine years</h4><p class="small">Tenanted or empty, either way unverified. A leak found late costs more than the rent collected.</p></div>
+    <div class="card t-l"><h4 class="pat">The queue I'd have to fly home for</h4><p class="small">A pension office, a deed, a licence renewal, a certificate that needs a stamp from one specific window.</p></div>
+  </div>
+  <div class="note good"><b>The commercial point.</b> Every one of those is a job someone would pay to have taken off them, and only the first four are elder care. The plan's first instinct — lead with elder care — is right for trust. It is wrong as a description of where the volume is.</div>
+</section>
+
+<section id="s3">
+  <div class="sechead"><div class="secno">03</div><div>
+    <h2>Why the model works structurally</h2>
+    <p class="lede">The strongest argument in favour of this business is not the market size. It is the geography of the money.</p>
+  </div></div>
+  <div class="scroll">
+    <svg viewBox="0 0 900 330" role="img" aria-label="Diagram: the payer in Canada pays a Canadian entity, which pays care managers in Iran" style="display:block;min-width:660px;width:100%;height:auto">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--lapis)"></path>
+        </marker>
+        <style>
+          .bx{fill:var(--card);stroke:var(--rule)}
+          .ti{font-family:Spectral,serif;font-size:17px;font-weight:600;fill:var(--ink)}
+          .tx{font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;fill:var(--ink2)}
+          .tk{font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;fill:var(--ink)}
+          .flow{stroke:var(--lapis);stroke-width:2;fill:none;marker-end:url(#ar)}
+          .dash{stroke:var(--madder);stroke-width:2;fill:none;stroke-dasharray:7 6;animation:march 1.4s linear infinite}
+          @keyframes march{to{stroke-dashoffset:-26}}
+          @media (prefers-reduced-motion: reduce){.dash{animation:none}}
+        </style>
+      </defs>
+      <rect class="bx" x="8" y="40" width="240" height="230" rx="3" stroke-width="1.5"></rect>
+      <text class="ti" x="26" y="70">Canada / EU / US</text>
+      <text class="tx" x="26" y="92">The payer</text>
+      <text class="tk" x="26" y="122">Migrant child, 30–50</text>
+      <text class="tk" x="26" y="144">Hard currency, no presence</text>
+      <text class="tk" x="26" y="166">Buying information, not labour</text>
+      <rect x="26" y="188" width="200" height="56" fill="var(--g-soft)" rx="2"></rect>
+      <text class="tk" x="38" y="210" style="font-weight:600">Pays USD / EUR / CAD</text>
+      <text class="tx" x="38" y="230">Card, Stripe, standard rails</text>
+
+      <rect class="bx" x="330" y="70" width="250" height="170" rx="3" fill="var(--ink)" stroke="var(--ink)"></rect>
+      <text class="ti" x="352" y="102" fill="var(--paper)">The platform</text>
+      <text class="tx" x="352" y="122" fill="var(--paper)" opacity=".75">Canadian legal entity</text>
+      <text class="tx" x="352" y="150" fill="var(--paper)" opacity=".9">Contract · billing · dashboard</text>
+      <text class="tx" x="352" y="172" fill="var(--paper)" opacity=".9">Reporting · escalation · SLA</text>
+      <text class="tx" x="352" y="194" fill="var(--paper)" opacity=".9">Protocol · quality control</text>
+      <text class="tx" x="352" y="216" fill="var(--paper)" opacity=".9">Liability and recourse</text>
+
+      <rect class="bx" x="660" y="40" width="232" height="230" rx="3" stroke-width="1.5"></rect>
+      <text class="ti" x="678" y="70">Iran</text>
+      <text class="tx" x="678" y="92">The recipient</text>
+      <text class="tk" x="678" y="122">Parent 65+, often alone</text>
+      <text class="tk" x="678" y="144">Property, admin, health needs</text>
+      <text class="tk" x="678" y="166">Consumes, never pays</text>
+      <rect x="678" y="188" width="196" height="56" fill="var(--x-soft)" rx="2"></rect>
+      <text class="tk" x="690" y="210" style="font-weight:600">Care managers paid IRR</text>
+      <text class="tx" x="690" y="230">Informal exchange channel</text>
+
+      <path class="flow" d="M250 155 L322 155"></path>
+      <path class="dash" d="M584 155 L652 155"></path>
+      <text class="tx" x="596" y="145" fill="var(--madder)">sarrafi</text>
+    </svg>
+  </div>
+  <div class="grid2" style="margin-top:24px">
+    <div class="note good" style="margin:0"><b>What this buys you.</b> Revenue never enters the Iranian banking system. No domestic gateway, no rial price list, no insurance integration, no sanctioned counterparty on the receiving end of a customer payment.</div>
+    <div class="note warn" style="margin:0"><b>What it does not buy you.</b> Paying your own Tehran team through informal channels is an operating-expense problem and manageable. Moving <em>customer</em> money outbound — a landlord's collected rent — is a different legal question with a different answer. Keep them in separate workstreams and separate opinions.</div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="sechead"><div class="secno">04</div><div>
+    <h2>Market</h2>
+    <p class="lede">Order-of-magnitude sizing, an honest note on how wide the estimates are, and a reframe that changes the denominator.</p>
+  </div></div>
+  <div id="mkt"></div>
+  <p class="src">Source: Iranian official reporting as cited in the source feasibility draft. The 15–20% share assumption is unvalidated and carries the most weight of any figure in this plan. A field check against it is the cheapest high-value research available.</p>
+  <div class="note"><b>The reframe.</b> Sizing on "has an elderly parent in Iran" gives one to one-and-a-half million households. Sizing on "has <em>anything</em> left behind in Iran" — a parent, a flat, a pension, a deed, a grave, an unfinished legal file — is closer to four million. Elder care is the emotional wedge that earns trust; property and administration are where the volume and the margin sit.</p></div>
+  <h3>Segments, in order of how easy they are to reach</h3>
+  <div class="grid3">
+    <div class="card t-l"><h4>The worried child</h4><p class="small">30–50, parent 70+ in Tehran or a provincial city, visits once every year or two. Buys a subscription. Highest emotional urgency, hardest trust barrier.</p></div>
+    <div class="card t-l"><h4>The absentee owner</h4><p class="small">Owns one to three units or inherited land. Wants evidence, not care. Buys per door, churns least, and never calls at 3am.</p></div>
+    <div class="card t-l"><h4>The paperwork exile</h4><p class="small">Needs a document, a certificate, a legalised translation, a pension chased. Buys once, urgently, and can be acquired on search intent alone.</p></div>
+    <div class="card t-l"><h4>The returning visitor</h4><p class="small">Flies back every year or two. Seasonal, high margin, zero liability, and the cheapest route to a first transaction with a stranger.</p></div>
+    <div class="card t-l"><h4>The heir</h4><p class="small">A parent has died; an estate is unresolved across borders. Predictable follow-on from end-of-life service, and the highest value per matter.</p></div>
+    <div class="card t-l"><h4>The second generation</h4><p class="small">Born abroad, reads English more comfortably than Persian, inherits the problem and the relationship. The reason every report ships bilingual.</p></div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="sechead"><div class="secno">05</div><div>
+    <h2>Competition</h2>
+    <p class="lede">There is no direct competitor in this corridor. That is not as good news as it sounds.</p>
+  </div></div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Who they are</th><th>What they prove</th><th>Where they leave a gap</th></tr></thead>
+      <tbody>
+        <tr><td><b>Nila Elder Care</b><br><span class="small">UK to India</span></td><td>That a diaspora child will pay a monthly subscription for a stranger to visit their parent, and that tiered pricing works in this category.</td><td>India has domestic payment rails, insurance products and a large formal home-care sector. None of that exists in the Iran corridor, so the operating model has to be rebuilt, not copied.</td></tr>
+        <tr><td><b>Propdial</b><br><span class="small">Indian NRI property management</span></td><td>Roughly 70% of its customers are non-resident owners managing property remotely. The closest thing to proven demand anywhere in this plan.</td><td>Property only. No care relationship, so no emotional switching cost and no route into the higher-value family jobs.</td></tr>
+        <tr><td><b>The cousin</b><br><span class="small">the actual incumbent</span></td><td>That the job is already being done, for free, by family. Demand is not in question; the willingness to pay for it is.</td><td>A favour cannot be scheduled, audited, escalated or repeated without social cost. Sell relief for the cousin, never replacement.</td></tr>
+        <tr><td><b>Informal Tehran fixers</b><br><span class="small">WhatsApp, word of mouth</span></td><td>That people already pay individuals in Iran to run errands and watch property.</td><td>No contract, no receipts, no recourse, no continuity if the person disappears. Every structural advantage here is a direct answer to that.</td></tr>
+        <tr><td><b>Persian-speaking professionals abroad</b><br><span class="small">lawyers, accountants, realtors</span></td><td>That the paperwork jobs have a real willingness to pay.</td><td>They handle one matter and stop. They are better treated as the first acquisition channel than as rivals.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn"><b>The honest read on an empty field.</b> No competitor usually means no proven willingness to pay, not an unclaimed prize. Nila and Propdial are the only evidence that this category converts at all, and both operate in an easier corridor. Treat the absence of an Iranian competitor as a validation task, not a moat.</div>
+</section>
+
+<section id="s6">
+  <div class="sechead"><div class="secno">06</div><div>
+    <h2>What we sell</h2>
+    <p class="lede">One hundred and twenty-nine services. Nine jobs a customer would recognise. Colours are how each one gets delivered.</p>
+  </div></div>
+  <p>Bar length is the number of services in that job. Teal is a general errand any vetted agent can run, amber is scheduled work by the named care manager, red needs a qualification or carries real liability. Tap a job for its description and its full service list.</p>
+  <div class="board" id="board"></div>
+  <p class="small" id="boardTotals"></p>
+  <div id="jobDetail"></div>
+
+  <h3>The platform layer, included in every tier and never metered</h3>
+  <p>Nine capabilities that are not services so much as the reason the services are worth paying for. Without them you are selling promises; with them you are selling evidence.</p>
+  <div class="grid3" id="platGrid"></div>
+
+  <h3>The full catalogue</h3>
+  <p>Two ways through it. The tree groups every service by domain, category and delivery class so you can explore it the way it is actually organised; the table flattens it for searching and comparing. Customer-facing name first, operational description second.</p>
+  <div class="controls" id="viewToggle"></div>
+  <div id="treeView">
+    <div class="controls" id="treeControls"></div>
+    <div class="tree" id="tree"></div>
+  </div>
+  <div id="tableView" hidden>
+    <div class="controls" id="jobFilter"></div>
+    <div class="controls" id="classFilter"></div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Name the customer sees</th><th>What it actually is</th><th>Class</th><th>Build step</th><th>Caveat</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="small" id="tableCount"></p>
+  </div>
+
+  <h3>Reconciliation with the service-ideas list</h3>
+  <p>The separate catalogue of service ideas has been folded in. Eighteen of its entries were genuine gaps and are now named services; the rest were already covered, in several cases because one service in this catalogue contains a dozen of that list's line items.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Grouping in that list</th><th>Where it lands here</th><th>What was added</th></tr></thead>
+      <tbody>
+        <tr><td><b>General services</b><br><span class="small">21 items</span></td><td>Split across <span class="pat">calls I can't make</span>, <span class="pat">queues I can't stand in</span>, <span class="pat">gifts I can't hand over</span> and <span class="pat">homecomings I can't prepare</span>. Companion items map to the accompaniment services; pickup and delivery to mail, documents and errands.</td><td class="small">Multi-task visit, open hourly assistance, repair drop-off and collection, a driver for the elder's own trips, accompanied appearance where she must attend in person, banking accompaniment, terminal and gate assistance for a travelling parent.</td></tr>
+        <tr><td><b>Technology support</b><br><span class="small">14 items</span></td><td>Four services, not fourteen: one-off setup, recurring coaching, home internet and network, and digital errands. Smart TV, app installation, file transfer and printing are tasks inside those, not separate products with separate prices.</td><td class="small">Home internet and network, recurring digital literacy coaching, digital errands (transfer, backup, printing, scanning).</td></tr>
+        <tr><td><b>Online and administrative support</b><br><span class="small">9 items</span></td><td>Portal work becomes two services, deliberately separated by risk: using an account and creating one.</td><td class="small">Portal and online form assistance; account and credential setup, with a standing rule that credentials are never retained.</td></tr>
+        <tr><td><b>Service coordination</b><br><span class="small">8 items</span></td><td>Already covered, and worth being explicit about why: finding a technician, getting quotes, scheduling, supervising, following up and reporting back are the six steps <em>inside</em> repair coordination. Pricing them separately would let a customer buy half a service.</td><td class="small">Nothing new. Urgent same-day trade dispatch was added separately, because urgency is a standby commitment rather than a coordination step.</td></tr>
+        <tr><td><b>Healthcare and caregiving</b><br><span class="small">9 items</span></td><td>The largest real gap in the original catalogue. Medication management, home nursing, physiotherapy and occupational therapy were already present; the rest were not.</td><td class="small">Doctor at home, at-home lab sample collection, post-discharge care package, professional home attendant with personal care.</td></tr>
+        <tr><td><b>Professional technical services</b><br><span class="small">8 items</span></td><td>One vetted trades panel rather than eight products: electrician, plumber, appliance, HVAC and boiler, computer and network, locksmith. The customer buys supervision and two quotes, not a trade.</td><td class="small">The trades are now named explicitly in the repair service, and urgent dispatch covers the out-of-hours case.</td></tr>
+        <tr><td><b>Legal and financial</b><br><span class="small">5 items</span></td><td>Power of attorney, tax work, court monitoring and accountancy were already in <span class="pat">papers I can't sign</span>, all via licensed partners.</td><td class="small">A brokered consultation with a Persian-speaking lawyer, accountant or tax specialist — the product for a family that needs an answer before it needs a matter opened.</td></tr>
+        <tr><td><b>Family care services</b><br><span class="small">14 items</span></td><td>Mostly packaging rather than services: weekly visits, monthly plans, a dedicated agent, visit reports and photo updates are tier features, and emergency assistance is a whole category. Hourly assistance and multi-task visits were the two real omissions.</td><td class="small">Both added above, plus a new pricing rule letting any quota be drawn down as plain agent hours.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note good"><b>Why the counts do not match.</b> That list decomposes work into tasks an agent performs; this one groups work into things a customer buys and a price can be attached to. A catalogue of 129 sellable services and roughly 300 underlying tasks is the right shape — the task list belongs in the care manager's protocol, not on the price sheet.</div>
+
+  <div class="note"><b>One inherited discrepancy.</b> The source draft summarises the medical family as 3 general / 8 semi-special / 5 special, while its own sixteen rows read 3 / 9 / 4. Row-level classes are used throughout this document. The other thirteen mix figures deserve the same re-count, because class totals drive the capacity model.</div>
+</section>
+
+<section id="s7">
+  <div class="sechead"><div class="secno">07</div><div>
+    <h2>How it gets delivered</h2>
+    <p class="lede">Three delivery classes, one protocol, and a boundary that is written into the customer contract on day one.</p>
+  </div></div>
+  <div class="grid3">
+    <div class="card t-g"><h4>General</h4><div class="bignum" id="nG"></div>
+      <p class="small">Errands ending in a receipt or a photograph. Any vetted local agent. 20–60 minutes, batchable — several in one neighbourhood cost barely more than one.</p>
+      <p class="small"><b>Meters as 1 unit.</b></p></div>
+    <div class="card t-s"><h4>Semi-special</h4><div class="bignum" id="nS"></div>
+      <p class="small">Scheduled work by the named care manager who knows the family, ending in a written or photographic report that takes real time to produce properly. 2–4 hours.</p>
+      <p class="small"><b>Meters as 3 units.</b></p></div>
+    <div class="card t-x"><h4>Special</h4><div class="bignum" id="nX"></div>
+      <p class="small">Needs a nurse, notary or accountant, or carries genuine liability. The cost is the standby capacity and the insurance behind it, not the hour spent.</p>
+      <p class="small"><b>Meters as 8 units, or quoted per matter.</b></p></div>
+  </div>
+
+  <h3>The life of a single request</h3>
+  <div class="scroll">
+    <svg viewBox="0 0 960 190" role="img" aria-label="Request flow from customer request through to report and invoice" style="display:block;min-width:700px;width:100%;height:auto">
+      <defs><style>
+        .st{fill:var(--card);stroke:var(--rule);stroke-width:1.5}
+        .sl{font-family:"IBM Plex Sans",sans-serif;font-size:13px;font-weight:600;fill:var(--ink)}
+        .ss{font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;fill:var(--ink2)}
+        .cn{stroke:var(--rule);stroke-width:1.5;fill:none}
+      </style></defs>
+      <g id="flowsteps"></g>
+    </svg>
+  </div>
+
+  <h3>One family, one manager — and a pool for the tasks he cannot take</h3>
+  <p>Every family is assigned to a single named care manager who owns the relationship, writes the reports and is the person the customer telephones. That ownership is the product. But a named person is also a single point of failure: he is in a hospital corridor across the city, the task is in a district he does not cover, it falls on a day he is unavailable, or it needs a class he is not cleared for. Refusing the task is not an option, and reassigning the family is worse than the problem.</p>
+  <p>So the tool carries an internal task pool. The owning manager posts the task, another manager claims it, and the commission is split between them. The family never sees a change of manager.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Step</th><th>What happens</th><th>Rule that makes it work</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Post</b></td><td>The owner posts the task with its class, the time window, the district, the spend authority and a short brief drawn from the family's standing notes.</td><td>Posting is logged against the owner, not hidden. A task cannot enter the pool without a brief — an unbriefed task is how a handed-off visit turns into a bad report.</td></tr>
+        <tr><td><b>2 · Offer</b></td><td>It opens to managers cleared for that class, ranked by district first for twenty minutes, then city-wide.</td><td>Proximity first protects route batching, which is where the margin on general tasks lives. Special-class tasks never open to the general pool — only to cleared managers or a contracted partner.</td></tr>
+        <tr><td><b>3 · Claim</b></td><td>The first eligible manager to claim takes it, and receives the brief, the address and the spend cap — not the medical file.</td><td>Time-limited, task-scoped access to the family's record. Data minimisation is a privacy obligation here, not a preference: the recipient is not the customer and never consented to a city-wide audience.</td></tr>
+        <tr><td><b>4 · Split</b></td><td>The taker earns 70% of the task credit. The owner keeps 30% for the brief, the supervision and writing it into the monthly report, and keeps the family retainer in full.</td><td>The owner is paid for the relationship and the taker for the work. Because the retainer is untouched, offloading does not pay — but taking a task always does.</td></tr>
+        <tr><td><b>5 · Escalate</b></td><td>A scheduled task unclaimed after 24 hours, or a same-day task after twenty minutes, escalates automatically to the operations lead, who assigns it by phone.</td><td>An unclaimed task must become someone's problem on a clock, or the pool quietly becomes a place where awkward jobs go to die.</td></tr>
+        <tr><td><b>6 · Report</b></td><td>Evidence flows into the same activity log. The customer sees “delivered by Reza, supervised by Maryam” — one owner's name on the report as always.</td><td>Transparent without being confusing. Complaints, quality score and the report deadline all stay with the owner.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid3" style="margin-top:22px">
+    <div class="card t-l"><h4>How managers are paid, so the split means something</h4><p class="small">Two components: a <b>family retainer</b> per assigned family, which pays for the relationship, the reporting and being reachable; and <b>task credits</b> per completed task, weighted exactly like customer metering — 1 for general, 3 for semi-special, 8 for special. A hand-off moves 70% of the task credit and none of the retainer.</p></div>
+    <div class="card t-l"><h4>Making the unpopular slots claimable</h4><p class="small">Same-day, evening and out-of-district tasks carry a <b>1.5× credit multiplier</b>. Without it the pool fills with easy morning errands and the 6pm pharmacy run sits unclaimed until the operations lead has to chase it personally.</p></div>
+    <div class="card t-l"><h4>The cap that keeps ownership real</h4><p class="small">Above <b>30% of a manager's monthly tasks</b> handed off, the account goes to capacity review. This is treated as a staffing signal, not misconduct — a manager consistently over the line is either overloaded or wrongly matched to that family.</p></div>
+  </div>
+
+  <div class="note good"><b>Why this is more than an internal convenience.</b> Three things fall out of it. Utilisation rises without hiring, because a manager with a quiet Tuesday can absorb someone else's overflow instead of idling. The key-person risk drops, since every family already has several managers who have worked their file. And it is the cheapest possible way into a new city: list tasks in the pool for vetted independents in Mashhad or Isfahan and watch the fill rate before committing to a salaried manager there. The pool is the first piece of software in this business that genuinely cannot be a spreadsheet, and it belongs in Phase 2.</div>
+  <div class="note warn"><b>What to watch for.</b> Two failure modes are predictable. A manager who hands off the emotionally hard visits and keeps the easy errands will show a normal hand-off rate and a falling family satisfaction score — which is why quality is tracked separately for owned and handed-off tasks. And a pool that fills instantly every time means the assignment model is wrong: families are being matched to managers who cannot serve their district.</div>
+
+  <h3>The operating team</h3>
+  <div class="grid2">
+    <div>
+      <h4>Tehran</h4>
+      <ul>
+        <li><b>Care managers</b> — named to families, run visits, write reports, escort appointments. Two minimum before any top-tier account is sold; each covers roughly 120 usable hours a month after travel and admin.</li>
+        <li><b>General agents</b> — errands, queues, deliveries, batched by neighbourhood and day. Paid per run, fungible by design.</li>
+        <li><b>Operations lead</b> (from month 6) — rota, quality sampling, partner relationships, escalation.</li>
+        <li><b>Partners under contract</b> — nursing agency, one or two clinics, contractors, notary, accountant, translator.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Canada</h4>
+      <ul>
+        <li><b>Founder</b>, part-time alongside a full-time role — sales, customer relationships, product, the legal and banking structure.</li>
+        <li><b>Contract counsel</b> — one opinion on sanctions and services, one on handling third-party money. Not optional and not cheap.</li>
+        <li><b>Bookkeeper</b> from first revenue, because expense pass-through only works if the receipts reconcile.</li>
+      </ul>
+      <p class="small">Key-person risk is the single largest operational exposure: the relationship lives with one care manager and the company lives with one founder. Named backups and documented client files are the only mitigation that works.</p>
+    </div>
+  </div>
+
+  <h3>Quality control, because the default assumption is that you are skimming</h3>
+  <div class="grid3">
+    <div class="card"><h4>Evidence by default</h4><p class="small">Timestamped arrival, photographs against a fixed checklist, itemised receipts visible in the dashboard. Nothing is marked done without artefacts.</p></div>
+    <div class="card"><h4>No cash custody</h4><p class="small">Official fees and contractor invoices pass through at cost with the receipt attached. Two-agent rule on any high-value transaction. No valuables held, ever.</p></div>
+    <div class="card"><h4>Coordination only</h4><p class="small">The platform coordinates care and never provides or interprets it. A care manager reports observations and never says "it's probably nothing" — the moment one does, the liability profile of the whole business changes.</p></div>
+    <div class="card"><h4>Named, with a named backup</h4><p class="small">"Your manager is on leave" must never mean "nobody knows your mother". Every file is written so a second manager can take over the same week.</p></div>
+    <div class="card"><h4>Published escalation</h4><p class="small">A response-time target per tier, a route past the local agent to the Canadian entity, and a written post-incident report within 24 hours of anything going wrong.</p></div>
+    <div class="card"><h4>Consent from the recipient</h4><p class="small">The parent is not the payer, and dignity is not a feature request. Cameras, monitoring and data retention require the elder's documented, informed consent.</p></div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="sechead"><div class="secno">08</div><div>
+    <h2>Packaging and pricing</h2>
+    <p class="lede">Four mechanisms, combined: an always-on base, metered quotas by class, published overage, and modules priced per asset rather than per family.</p>
+  </div></div>
+  <p>A flat tier with an implied open scope invites the heaviest users to consume the most, which is exactly backwards once the catalogue is 129 services wide. The fix is not a higher price — it is making consumption explicit and welcome.</p>
+
+  <div class="grid2" style="margin-top:20px">
+    <div class="card t-l"><h4>1 · The always-on base</h4><p class="small">What the tier buys unconditionally: the emergency line, the dashboard, the named manager, the reporting rhythm. This is standby capacity, and it costs money whether anyone calls or not.</p></div>
+    <div class="card t-l"><h4>2 · Separate quotas by class</h4><p class="small">A monthly allowance of general, semi-special and special requests, on three separate counters. One pooled bucket lets a customer spend the whole allowance on the most expensive class.</p></div>
+    <div class="card t-l"><h4>3 · Overage at a published rate</h4><p class="small">Exceeding a quota is normal, and priced. Overage is a feature: it is how a customer discovers for themselves that they belong on the tier above.</p></div>
+    <div class="card t-l"><h4>4 · Modules priced per asset</h4><p class="small">Property per door, legal per matter, travel per trip. Bundling those into a family tier destroys the tier's margin and undercharges the heavy asset owner.</p></div>
+  </div>
+
+  <h3>The four subscriptions</h3>
+  <div class="tiergrid" id="tierGrid"></div>
+
+  <h3>Changing the shape of a package</h3>
+  <p>Every tier is a starting point, not a box. Eight levers let a customer reshape one, grouped by the question they are actually asking. Each reads the same way: what they say, what happens, and why the rule is written that way.</p>
+
+  <h4 style="margin-top:22px">“Who does this cover?”</h4>
+  <div class="grid3">
+    <div class="card t-l"><h4>Both my parents</h4><p class="small"><b>+40% of the tier</b>, not double. The visit, the travel and the manager relationship are shared; only the reporting and the medical coordination genuinely double.</p><p class="small" style="color:var(--ink2)">Charging full price for a second parent at the same address is the commonest way this category loses a sale.</p></div>
+    <div class="card t-l"><h4>My mother in Tehran and my aunt in Karaj</h4><p class="small"><b>+$25 a month</b> per additional household or city.</p><p class="small" style="color:var(--ink2)">Covers the travel and the lost route batching when the second address is nowhere near the first.</p></div>
+    <div class="card t-l"><h4>My brother and I both worry</h4><p class="small"><b>Up to four payers</b> on one account, each billed their agreed share separately, each with dashboard access.</p><p class="small" style="color:var(--ink2)">Turns one $95 decision into three $32 decisions — a materially easier conversation in a family that discusses everything.</p></div>
+  </div>
+
+  <h4 style="margin-top:26px">“What if we don't use it all — or need more?”</h4>
+  <div class="grid3">
+    <div class="card t-s"><h4>A quiet month</h4><p class="small"><b>Rollover:</b> unused quota carries one month on Watch, two on Vigil, none on the lower tiers.</p><p class="small" style="color:var(--ink2)">Quiet months are normal in elder care. Losing the whole allowance every month reads as a con and drives cancellation.</p></div>
+    <div class="card t-s"><h4>A heavy month</h4><p class="small"><b>Overage</b> at a published rate that falls as the tier rises — $8 to $14 for a general request, $18 to $28 for an extra visit. Nothing is refused for being over quota.</p><p class="small" style="color:var(--ink2)">Overage is how a customer discovers for themselves that they belong on the tier above, without being sold to.</p></div>
+    <div class="card t-s"><h4>“I'd rather have three small things”</h4><p class="small"><b>Swap down:</b> one semi-special may be traded for three general requests, once a month. Never upward, and special events are never swappable.</p><p class="small" style="color:var(--ink2)">Real flexibility without letting a $45 customer convert an allowance into partner-delivered work that costs $70 to fulfil.</p></div>
+    <div class="card t-s"><h4>“Just be there for an afternoon”</h4><p class="small"><b>Time instead of tasks:</b> any quota can be drawn as plain agent hours — one hour per general unit, three per semi-special. Clinical and partner work excluded.</p><p class="small" style="color:var(--ink2)">Some families don't know what they want done; they know they want someone present. Selling time absorbs every request nobody anticipated.</p></div>
+  </div>
+
+  <h4 style="margin-top:26px">“What am I committing to?”</h4>
+  <div class="grid3">
+    <div class="card t-g"><h4>Pay for the year</h4><p class="small"><b>Ten months for twelve.</b></p><p class="small" style="color:var(--ink2)">Front-loads hard currency, removes eleven chances for a card to fail, and cuts the number of cross-border transfers you have to make.</p></div>
+    <div class="card t-g"><h4>“She's coming to stay with us for two months”</h4><p class="small"><b>Pause at 50%</b> for up to two months instead of cancelling. The file, the vault and the manager stay put.</p><p class="small" style="color:var(--ink2)">A temporary absence is the commonest reason accounts close. A pause keeps the relationship that took four months to build.</p></div>
+    <div class="card t-g"><h4>“What if this isn't right?”</h4><p class="small"><b>Change tier any month</b>, up or down. <b>Cancel monthly</b>, no notice, no clause.</p><p class="small" style="color:var(--ink2)">In a trust-deficit category a lock-in clause is read as a trap. Retention comes from the document vault and the relationship, never the contract.</p></div>
+  </div>
+
+  <div class="note good" style="margin-top:26px"><b>A worked example.</b> Two siblings in Toronto, both parents in Tehran, one empty apartment in the same district. Watch at $95, second parent at +40% ($133), one door on standing vacant care at $39 — <b>$172 a month</b>, split two ways at <b>$86 each</b>, or $1,720 prepaid for the year instead of $2,064. The quota that buys: two visits, eight check-in calls, six errands, three semi-special requests and one special event a month, with a 90-minute emergency target. Section 9 lets you build any other combination.</div>
+
+  <h3>Full comparison</h3>
+  <div class="scroll"><table id="matrix"></table></div>
+  <p class="small"><b>Reading the quoted cells.</b> Quoted means available but not drawn from quota — priced per matter because partner costs dominate and vary too widely to average. That is the honest structure for anything involving a notary, a lawyer, an accountant or a licensed nurse.</p>
+
+  <h3>Everything sold outside a tier</h3>
+  <p>A subscription is one of three ways to buy, and it is not the first one most people choose. The other two are not extras or upsells — they are the acquisition engine, and together they are expected to carry a fifth of revenue.</p>
+  <div class="grid3">
+    <div class="card t-l"><h4>1 · Standing modules</h4><p class="small"><b>Recurring, priced per asset.</b> A flat, a parcel of land, a car, a pension, a grave. Bought monthly like a subscription but attached to a thing rather than a person, so an owner with three flats pays three times.</p></div>
+    <div class="card t-s"><h4>2 · One-off jobs</h4><p class="small"><b>Single purchases, priced individually.</b> No commitment, no account required. Roughly 1.6× the in-plan equivalent — the gap is deliberate, because this menu exists to acquire subscribers rather than to compete with them.</p></div>
+    <div class="card t-g"><h4>3 · Prepaid strips</h4><p class="small"><b>A balance of credits, six-month validity.</b> For the buyer who wants the service occasionally and refuses any recurring charge. The bridge between one job and a tier.</p></div>
+  </div>
+
+  <h4 style="margin-top:30px">1 · Standing modules, priced per asset</h4>
+  <p class="small">Never folded into a family tier. An owner with three apartments costs three times as much to serve and values the service three times as highly; bundling property into a care tier undercharges exactly the customers most willing to pay.</p>
+  <div class="scroll"><table id="modules"></table></div>
+
+  <h4 style="margin-top:30px">2 · One-off jobs, with prices</h4>
+  <p class="small">The complete published menu, grouped by the category each job sits in. Official fees, contractor invoices and gift costs are always passed through at cost with the receipt visible — the platform earns only the stated fee.</p>
+  <div class="controls" id="ooFilter"></div>
+  <div class="scroll"><table id="oneoff"></table></div>
+  <div class="note good"><b>The three that do the most work.</b> A gift delivery photographed with the recipient is the referral engine — it costs almost nothing and it produces an image the customer forwards to their siblings. A single welfare visit with a report is the natural trial purchase for a sceptic. And certified translation with legalisation has demand entirely independent of elder care, which makes it the one line worth buying search keywords for before any trust exists.</div>
+
+  <h4 style="margin-top:30px">3 · Prepaid strips, for the people who will not subscribe</h4>
+  <div class="grid3">
+    <div class="card t-g"><h4>Five errands · $85</h4><p class="small">5 general credits. Saves $15 against one-off pricing.</p></div>
+    <div class="card t-g"><h4>Three visits · $115</h4><p class="small">3 semi-special credits — a welfare visit with a report, or an appointment escorted and summarised.</p></div>
+    <div class="card t-g"><h4>Mixed ten · $190</h4><p class="small">7 general and 3 semi-special. The natural purchase after one good experience.</p></div>
+  </div>
+  <p class="small" style="margin-top:12px">Credits spend on any general or semi-special service in the catalogue at the same 1 and 3 unit weights used inside the tiers, or as plain agent hours. Special events are never sold as credits — they are quoted. <b>The conversion mechanic:</b> a customer who spends a strip within 60 days is offered the matching subscription with the unused balance carried across, which is a warm upgrade conversation with evidence already delivered.</p>
+
+  <div class="note warn"><b>Deliberate divergence from the source draft.</b> These tiers run above the $15–20 / $40–60 / $80–120 originally proposed, and there are four rather than three. The reason is not optimism: the source ranges were benchmarked against a comparable service whose tiers did not include metered general and semi-special work. Once agent hours sit inside the tier, the price has to cover them. If validation shows the ceiling really is $60, the correct response is to cut the top tier's quotas, not the price.</div>
+</section>
+
+<section id="s9">
+  <div class="sechead"><div class="secno">09</div><div>
+    <h2>Build a package</h2>
+    <p class="lede">Five questions, asked the way a customer would answer them. The quote assembles itself as you go, and the internal economics sit behind one click.</p>
+  </div></div>
+  <div id="cfg"></div>
+</section>
+
+<section id="s10">
+  <div class="sechead"><div class="secno">10</div><div>
+    <h2>Sales and go-to-market</h2>
+    <p class="lede">Two people have to say yes, and the second one is not paying.</p>
+  </div></div>
+  <div class="note warn"><b>The structural fact that shapes the whole funnel.</b> The child signs the contract; the parent receives the service. If the parent refuses the visitor — and elderly Iranian parents frequently do, out of pride, privacy, or a refusal to be treated as a burden — the account churns within 60 days no matter how good the product is. Parent acceptance is a pre-sale gate, not an onboarding step, and it is a gate you must be willing to fail.</div>
+
+  <h3>The funnel, at two very different scales</h3>
+  <p>The same seven steps, once as one person can run them and once with paid channels and a team. The shape barely changes; only the top of it does. Both are planning placeholders, and the step to measure honestly is the parent gate.</p>
+  <div id="funnel"></div>
+  <div class="scroll" style="margin-top:20px">
+    <table>
+      <thead><tr><th>Step</th><th>Why it is shaped that way</th></tr></thead>
+      <tbody>
+        <tr><td><b>Content before offer</b></td><td>This category does not convert on a direct advertisement. The buyer is not searching for a product; they are carrying a worry they have not named yet. Naming the worry — "the Friday call that tells you nothing" — outperforms feature advertising in comparable trust-sensitive services.</td></tr>
+        <tr><td><b>A real sample report on the landing page</b></td><td>The single highest-leverage asset in the business. An anonymised monthly report with photographs, checklist, doctor summary and receipts answers every objection at once without a conversation. Build it before the website copy.</td></tr>
+        <tr><td><b>An assessment call, not a demo</b></td><td>Twenty structured minutes about the parent's situation produces a tier recommendation the customer arrives at themselves — and doubles as field research from people who are already qualified buyers.</td></tr>
+        <tr><td><b>Parent acceptance in Persian</b></td><td>Introduce the named manager to the parent directly, before money changes hands. Costs some sales and saves the churn plus the bad word of mouth. In a referral-driven community a failed account is more expensive than a lost one.</td></tr>
+        <tr><td><b>Referral ask at day 90</b></td><td>Asking earlier converts badly because the customer has nothing to vouch for. Three reports in, they have evidence, and evidence is what gets forwarded to a sibling.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Channels, ranked by expected efficiency</h3>
+  <p>Ranked on intent — how close the person already is to wanting this — because in a trust-heavy category intent beats reach every time. The meters are judgement calls to be replaced with measured numbers as soon as anything is running.</p>
+  <div class="grid2" id="channels"></div>
+  <div class="note warn"><b>The one exception to putting paid last.</b> Paid search is wrong for care, where the buyer cannot name what they want and a cold click has no trust to spend. It is right for the paperwork jobs: somebody typing "certified translation Iran documents Toronto" has named their problem, wants it solved this week, and needs no emotional preparation at all. Buy those keywords early and treat the resulting customers as the top of the care funnel six months later.</div>
+
+  <h3>The six objections, and what actually answers them</h3>
+  <div class="grid2" id="objections"></div>
+
+  <h3>Sales assets, in build order</h3>
+  <p>Twelve things to make, in three waves. Each one exists to kill a specific objection or to remove a specific piece of work from a sales conversation. The cost column is founder hours plus cash, because that is the real constraint here — not money.</p>
+  <div id="assets"></div>
+  <div class="note good"><b>If only one thing gets built.</b> The anonymised sample monthly report. It answers the theft objection, the quality objection and the "what do I actually get" objection simultaneously, without a conversation, at a cost of about six hours. Every other asset on this list is easier to write once it exists, because it can simply point at it.</div>
+
+</section>
+
+<section id="s11">
+  <div class="sechead"><div class="secno">11</div><div>
+    <h2>Unit economics</h2>
+    <p class="lede">One assumption drives every number on this page.</p>
+  </div></div>
+  <div class="note"><b>The load-bearing assumptions.</b> A Tehran care manager costs roughly <b>$360 a month fully loaded</b> with about <b>120 usable hours</b> after travel and admin — $3 an hour. Every number below moves proportionally with those two figures, and both need verifying in Phase 0 before any price is published.</div>
+
+  <h3>The rate card the hours are built from</h3>
+  <p>The source draft's hours column was internally inconsistent — its upper-tier figures implied a semi-special request taking about ninety minutes while the class definition says two to four hours. Everything here is rebuilt from one explicit rate card instead, so the arithmetic can be checked and corrected against real timesheets.</p>
+  <div class="grid3">
+    <div class="card t-g"><h4>General request</h4><div class="bignum">0.5 hr</div><p class="small">20–60 minutes including travel, <em>assuming it rides an existing neighbourhood route</em>. An urgent, unbatched general request costs closer to 1.5 hours, which is what the overage price covers.</p></div>
+    <div class="card t-s"><h4>Semi-special request</h4><div class="bignum">2.5 hr</div><p class="small">Mid-point of the 2–4 hour class definition, including the time to write the report properly. Report-writing is the part that gets underestimated.</p></div>
+    <div class="card t-s"><h4>In-person visit</h4><div class="bignum">2.0 hr</div><p class="small">The standard protocol visit plus travel across a large city. Counted separately from the semi-special quota because every tier includes visits outright.</p></div>
+    <div class="card t-x"><h4>Special event</h4><div class="bignum">3.0 hr</div><p class="small">Direct time only. It excludes the standby capacity and the partner invoice, which is exactly why special events are capped or quoted rather than bundled.</p></div>
+    <div class="card t-l"><h4>Tier base</h4><div class="bignum">0.5–3 hr</div><p class="small">Check-in calls, being reachable, keeping the file current and producing the report rhythm. Rises with the tier: half an hour on Voice, three on Vigil.</p></div>
+    <div class="card t-l"><h4>Expected utilisation</h4><div class="bignum">55%</div><p class="small">Mid-point of the 40–70% target band. Nobody consumes a full quota every month, and that gap is most of the real margin — which is why it is stated as an assumption here rather than hidden inside a margin figure.</p></div>
+  </div>
+
+  <h3>What each product costs to serve</h3>
+  <p>Two views of the same tier. The left pair is what happens at the expected 55% utilisation; the right pair is the stress case where a customer consumes every unit of their quota every month.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Product</th><th>Price</th><th>Hours at 55% use</th><th>Margin at 55%</th><th>Hours at full quota</th><th>Margin at full quota</th><th>Accounts per manager</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td><b>Voice</b></td><td>$19</td><td>~1.1</td><td><b>83%</b></td><td>~2.0</td><td>68%</td><td>~109</td><td class="small">Three errands, no visit, a shared manager. Healthy on paper because it delivers little — its job is conversion, and it should be capped at three months.</td></tr>
+        <tr><td><b>Visit</b></td><td>$45</td><td>~4.7</td><td><b>69%</b></td><td>~8.5</td><td>43%</td><td>~25</td><td class="small">The volume tier. Note the gap between the two margin columns: a Visit customer who uses everything every month is barely profitable, which is what the overage rates exist to correct.</td></tr>
+        <tr><td><b>Watch</b></td><td>$95</td><td>~12.1</td><td><b>62%</b></td><td>~22</td><td>31%</td><td>~10</td><td class="small">Slightly lower margin percentage than Visit, roughly four times the absolute contribution. This is the tier the business needs, and the one to aim every sales conversation at.</td></tr>
+        <tr><td><b>Vigil</b></td><td>$175</td><td>~25.9</td><td><b>56%</b></td><td>~47</td><td>23%</td><td>~5</td><td class="small">Thinnest margin and highest concentration risk. Five of these occupy one manager entirely, and at full quota use it loses money against a $360 salary. Cap at 15% of the book and require two managers before selling one.</td></tr>
+        <tr><td><b>Run a door</b></td><td>$65</td><td>~3.0</td><td><b>86%</b></td><td>~3.5</td><td>84%</td><td>~40 doors</td><td class="small">Almost no gap between the two columns, because property work is scheduled rather than requested. The best margin in the catalogue, and the most predictable.</td></tr>
+        <tr><td><b>Arrival pack</b></td><td>$120</td><td>~5.0</td><td><b>87%</b></td><td>~5.0</td><td>87%</td><td>seasonal</td><td class="small">Fixed scope, no ongoing obligation, bought by the payer for themselves. The ideal first transaction with a stranger.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn"><b>The quota is a ceiling, not a forecast — and that is a deliberate bet.</b> Every tier above is priced on the assumption that customers use roughly half of what they are entitled to. The bet is reasonable in this category and it is also the single easiest way for this plan to be wrong. If pilot utilisation comes in at 85% rather than 55%, the correct response is to cut quotas at renewal, not to raise prices on a book you have just acquired. Measure it from the first month.</div>
+
+  <div id="marginChart"></div>
+
+  <h3>Three uncomfortable conclusions</h3>
+  <div class="grid3">
+    <div class="card t-x"><h4>Elder care is the wedge, not the business</h4><p class="small">Property earns a better margin, scales better per agent hour and carries none of the reputational tail risk of a bad medical outcome. Sequencing elder care first is right for trust-building. It is not a judgement about where the profit is.</p></div>
+    <div class="card t-x"><h4>The top tier is a capacity trap</h4><p class="small">Four Vigil clients consume one full manager. Sell it before the Tehran team has depth and a single resignation takes out your highest-paying accounts simultaneously. Cap it at 15% of the book.</p></div>
+    <div class="card t-x"><h4>Margin lives in under-use</h4><p class="small">The table assumes full quota consumption. Real utilisation in subscription concierge sits well below 100%, and that gap is most of the actual margin — which means utilisation has to be measured before final prices are set.</p></div>
+  </div>
+  <div id="utilChart"></div>
+</section>
+
+<section id="s12">
+  <div class="sechead"><div class="secno">12</div><div>
+    <h2>Financial projection</h2>
+    <p class="lede">Three years, built line by line from the assumptions rather than from a target. The arithmetic is shown so you can disagree with it in specific places.</p>
+  </div></div>
+  <div id="revChart"></div>
+  <div class="scroll" style="margin-top:24px">
+    <table>
+      <thead><tr><th></th><th>Year 1 exit</th><th>Year 2 exit</th><th>Year 3 exit</th></tr></thead>
+      <tbody>
+        <tr><td><b>Subscribing families</b></td><td>40</td><td>120</td><td>300</td></tr>
+        <tr><td><b>Property doors</b></td><td>15</td><td>80</td><td>300</td></tr>
+        <tr><td><b>Tier mix</b></td><td class="small">15 / 45 / 30 / 10</td><td class="small">10 / 40 / 38 / 12</td><td class="small">8 / 35 / 42 / 15</td></tr>
+        <tr><td><b>Monthly recurring revenue</b></td><td>~$4.1k</td><td>~$15.3k</td><td>~$47k</td></tr>
+        <tr><td><b>Annualised</b></td><td>~$49k</td><td>~$184k</td><td>~$565k</td></tr>
+        <tr><td><b>Care managers</b></td><td>3</td><td>12 + ops lead</td><td>33 + 2 leads</td></tr>
+        <tr><td><b>Monthly cost base</b></td><td>~$2.4k</td><td>~$9.4k</td><td>~$28k</td></tr>
+        <tr><td><b>Monthly contribution</b></td><td>~$1.7k</td><td>~$6.4k</td><td>~$21k</td></tr>
+        <tr><td><b>Founder compensation</b></td><td>none</td><td>part-time from month 18</td><td>first full Canadian salary</td></tr>
+        <tr><td><b>Cities</b></td><td>Tehran</td><td>+ Mashhad, Isfahan, Shiraz</td><td>+ Tabriz, Karaj, provincial coverage by contract</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>How these numbers are built</h3>
+  <p>Three lines, added together, every month:</p>
+  <div class="grid3">
+    <div class="card t-l"><h4>Subscriptions</h4><p class="small">Families × blended price. The blend comes from the tier mix, not from an average guess: at the Year 1 mix of 15 / 45 / 30 / 10 across Voice, Visit, Watch and Vigil, the blended price is <b>$69</b>. It rises to $77 in Year 2 and $83 in Year 3 as the book shifts upward.</p></div>
+    <div class="card t-l"><h4>Property doors</h4><p class="small">Doors × rate. Assumed at a blend of <b>$52–58</b> per door, reflecting a mix of vacant watch at $39 and tenanted management at $65. Doors grow faster than families from Year 2 because they are batchable and carry no parent gate.</p></div>
+    <div class="card t-l"><h4>One-off work and overage</h4><p class="small">Assumed at <b>18% of subscription revenue</b> — arrival packs, Nowruz packages, extra visits, credit strips and the à-la-carte menu. Low for a concierge business, deliberately, because it is the least predictable line.</p></div>
+  </div>
+  <div class="scroll" style="margin-top:18px">
+    <table>
+      <thead><tr><th>Year 1 exit, worked through</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>40 families × $69 blended</td><td><b>$2,760</b></td></tr>
+        <tr><td>15 doors × $52 blended</td><td><b>$780</b></td></tr>
+        <tr><td>One-off and overage, 18% of subscriptions</td><td><b>$500</b></td></tr>
+        <tr><td><b>Monthly recurring revenue</b></td><td><b>$4,040</b></td></tr>
+        <tr><td>Less Tehran: 3 managers at $360, plus agents and transport</td><td>−$1,380</td></tr>
+        <tr><td>Less Canada: entity, bookkeeping, tools, insurance</td><td>−$600</td></tr>
+        <tr><td>Less card fees at about 3%, and marketing</td><td>−$430</td></tr>
+        <tr><td><b>Monthly contribution, founder unpaid</b></td><td><b>~$1,630</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Is $565k in year three too low?</h3>
+  <p>For the market, yes — obviously. Three hundred families is about <b>0.02%</b> of the households with a parent still in Iran. Nothing in this plan is limited by how many people want the service. Four things limit it instead, and all four are worth stating plainly because they are also the list of things to attack.</p>
+  <div class="grid2">
+    <div class="card t-x"><h4>Tehran hiring, above all</h4><p class="small">A manager carries about ten Watch-equivalent families. Three hundred families needs roughly thirty trained, supervised, named managers in a city with no HR function and one operations lead. Recruiting, training to protocol and quality-sampling that many people is the actual growth rate of this business.</p></div>
+    <div class="card t-x"><h4>Founder hours</h4><p class="small">Every care sale involves a twenty-minute assessment call and a Persian conversation with a parent. Sixty paid starts a month needs three people doing nothing else. One part-time founder produces the Phase 2 funnel, not the Phase 4 one.</p></div>
+    <div class="card t-x"><h4>Trust compounds slowly</h4><p class="small">Referral-led growth in a category where the incumbent is a cousin runs at roughly 0.3 referrals per retained account per year. That is a good number for this category and a slow one in absolute terms.</p></div>
+    <div class="card t-x"><h4>No outside capital assumed</h4><p class="small">Growth is funded from contribution, which caps hiring ahead of demand. This is a choice, not a constraint — but it is the choice this projection is built on.</p></div>
+  </div>
+
+  <h3>What a bigger version looks like</h3>
+  <p>Three levers, each of which changes the shape rather than the effort. They are listed with the honest caveat attached: each needs its own funnel, its own landing page and its own language, and attempting all three at once is how a two-person company fails.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Lever</th><th>What changes</th><th>Year 3 instead</th><th>What it costs</th></tr></thead>
+      <tbody>
+        <tr><td><b>Lead with property</b></td><td>A manager carries about forty doors against ten families, doors need no parent gate, and they churn far less. A property-led book of 300 families plus <b>1,200 doors</b> rather than 300.</td><td><b>~$99k/mo<br>≈ $1.2M a year</b></td><td>Roughly double the managers, a separate funnel, and the remittance question answered by counsel rather than avoided.</td></tr>
+        <tr><td><b>Sell the paperwork on search intent</b></td><td>Certified translation, powers of attorney, pension chasing and document retrieval have real search volume and no trust barrier. 500 one-off jobs a month at an average $45.</td><td><b>+$22k/mo<br>with no subscribers at all</b></td><td>A paid-search budget, faster partner capacity for notarial work, and the discipline to treat it as a funnel into care rather than a separate business.</td></tr>
+        <tr><td><b>A second country, not a second city</b></td><td>The Tehran operation is the asset; the Canadian entity is a template. Germany, the UK and the US each hold a diaspora of comparable size and buy from the same Tehran team.</td><td><b>2–3× the same book</b></td><td>An entity and a payment stack per country, local counsel on sanctions each time, and marketing in a third and fourth language.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Nine shapes the same business could take</h3>
+  <p>The base case above is one book. The same catalogue, the same Tehran team and the same rate card produce very different businesses depending on <em>what</em> you sell and <em>how many</em> of it. Three scales down the side, three mixes across the top. Every figure is computed from the rate card in section 11 — change an assumption there and all nine move together.</p>
+  <div class="scroll"><div class="sgrid" id="sgrid"></div></div>
+  <div id="sdetail"></div>
+  <div class="note"><b>What the grid says, in one line.</b> Reading across any row, the care-only column always earns the least per manager and carries all of the 3am risk; the high-value column earns well on very few clients but concentrates everything in a handful of accounts and a handful of partners; the mixed column is the only shape where the margin and the risk are both survivable. Reading down any column, scale changes the numbers and not the conclusion.</div>
+
+  <div class="note warn"><b>Why the base case stays where it is.</b> A plan that projects $1.2M by year three is a plan that has already assumed the hiring, the counsel opinion and the paid-search budget all arrive on time. The numbers above are what one part-time founder and a small Tehran team can carry without any of that going right. Treat the levers as the answer to "how would this get big", and the base case as the answer to "what happens if nothing goes unusually well".</div>
+
+  <h3>What it costs to get to revenue</h3>
+  <div class="grid3">
+    <div class="card"><h4>Canadian incorporation and setup</h4><div class="bignum">~$0.5k</div><p class="small">Federal or Ontario corporation, registered address, bank account, Stripe.</p></div>
+    <div class="card"><h4>Legal opinions</h4><div class="bignum">$3–6k</div><p class="small">One on services to family members under the sanctions regime, one on handling third-party money. The only line here that cannot be done cheaply, and the one that must not be skipped.</p></div>
+    <div class="card"><h4>Brand, site, sample report</h4><div class="bignum">~$1.5k</div><p class="small">One landing page, one anonymised sample report, the price sheet. Built by the founder where possible.</p></div>
+    <div class="card"><h4>Pilot operations</h4><div class="bignum">€4,000</div><p class="small">Two to three care managers for two to three months, transport, phones, five to ten pilot families. Capped, as in the source plan.</p></div>
+    <div class="card"><h4>Tooling to first revenue</h4><div class="bignum">~$0.3k</div><p class="small">Deliberately unglamorous: a spreadsheet back end, a shared drive vault, WhatsApp for field comms, Stripe for billing. Custom software only after the protocol stops changing weekly.</p></div>
+    <div class="card t-l"><h4>Peak cash requirement</h4><div class="bignum">~$12–15k</div><p class="small">Self-fundable. No external capital is needed before the property layer, and the first sensible use of outside money is hiring Tehran capacity ahead of demand, not marketing.</p></div>
+  </div>
+  <div class="note warn"><b>What the projection deliberately excludes.</b> Founder time at any market rate, bad-debt and refund provision, currency loss on the outbound leg, and the cost of one serious incident. At a 40-family book the business covers its Tehran operating cost and very little else — which is the correct expectation, and precisely why the property layer matters more than a larger elder-care book would.</div>
+</section>
+
+<section id="s13">
+  <div class="sechead"><div class="secno">13</div><div>
+    <h2>The eight numbers that should drive decisions</h2>
+    <p class="lede">Everything else is reporting. These change what you do next.</p>
+  </div></div>
+  <div class="grid2" id="kpis"></div>
+</section>
+
+<section id="s14">
+  <div class="sechead"><div class="secno">14</div><div>
+    <h2>Risk register</h2>
+    <p class="lede">Ranked by severity, with the mitigation that actually addresses it rather than the one that sounds reassuring.</p>
+  </div></div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td><b>Trust, with no known brand</b></td><td><span class="tag x">High</span></td><td>Referral-led entry, a published sample report, transparent pass-through, and a Canadian entity the customer can actually pursue.</td></tr>
+        <tr><td><b>Heterogeneous agent quality</b></td><td><span class="tag x">High</span></td><td>Written protocol, photo evidence per visit, continuous family feedback, sampled quality audits, named backup manager.</td></tr>
+        <tr><td><b>A bad outcome in an emergency</b></td><td><span class="tag x">High</span></td><td>Coordination-only boundary in the contract, a rehearsed emergency protocol, liability cover where obtainable, and a written post-incident report within 24 hours.</td></tr>
+        <tr><td><b>The parent refuses the service</b></td><td><span class="tag x">High</span></td><td>Parent-acceptance call as a pre-sale gate; occasions and gifts as a softer entry frame; measured as a funnel metric, not an anecdote.</td></tr>
+        <tr><td><b>Agent theft or fraud</b></td><td><span class="tag x">High</span></td><td>No cash custody, receipts for everything, two-agent rule above a value threshold, bonding where available.</td></tr>
+        <tr><td><b>Key-person dependency</b></td><td><span class="tag x">High</span></td><td>Two managers before any top-tier account is sold; client files written so a second manager can take over the same week. Applies to the founder equally.</td></tr>
+        <tr><td><b>Outbound customer money via informal rails</b></td><td><span class="tag x">High</span></td><td>Rent remittance excluded from the price list until counsel clears it. Do not let this arrive as a customer request you improvise an answer to.</td></tr>
+        <tr><td><b>Founder time alongside a full-time role</b></td><td><span class="tag x">High</span></td><td>Keep the pilot small and pull in only the service families that add revenue without adding founder hours.</td></tr>
+        <tr><td><b>Quality drift through the task pool</b></td><td><span class="tag s">Medium</span></td><td>Separate quality scores for owned and handed-off tasks, a 30% hand-off cap triggering capacity review, task-scoped file access, and the owning manager remaining accountable for the report and the complaint.</td></tr>
+        <tr><td><b>Canada–Iran fund transfer complexity</b></td><td><span class="tag s">Med-high</span></td><td>Identify a stable exchange channel in month one, document the relationship, and never commingle customer money with operating transfers.</td></tr>
+        <tr><td><b>Cross-border handling of elder health data</b></td><td><span class="tag s">Medium</span></td><td>Canadian privacy obligations apply to the entity. Data minimisation, explicit elder consent, defined retention. Cheap to get right now and expensive to retrofit.</td></tr>
+        <tr><td><b>Currency volatility on the outbound leg</b></td><td><span class="tag s">Medium</span></td><td>Price in hard currency, review local pay quarterly, hold a small buffer. A rial collapse improves margins; a sudden appreciation compresses them.</td></tr>
+        <tr><td><b>Internet and communication disruption in Iran</b></td><td><span class="tag s">Medium</span></td><td>Offline-capable protocol, SMS and voice fallback, agents who can report by phone to Canada if platforms are unreachable.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s15">
+  <div class="sechead"><div class="secno">15</div><div>
+    <h2>Legal and compliance structure</h2>
+    <p class="lede">Four questions that need answers in writing before the first paid customer, not after.</p>
+  </div></div>
+  <div class="grid2">
+    <div class="card t-x"><h4>Sanctions posture</h4><p class="small">The customer is in Canada, pays a Canadian company in hard currency, and receives a service. That is a different position from prohibited trade, but the answer must come from counsel in plain language, be published as a customer-facing FAQ, and never be improvised in a sales call.</p></div>
+    <div class="card t-x"><h4>Third-party money</h4><p class="small">Collecting rent, holding a deposit or moving funds outbound for a customer is where a service coordinator becomes something that needs a licence. The standing policy: no custody of cash, gold or valuables; no discretionary investment; no currency transfer as a standalone product; read-only financial follow-up only.</p></div>
+    <div class="card t-x"><h4>Privacy of a person who is not the customer</h4><p class="small">The elder's health observations, photographs and documents belong to them. Canadian privacy law applies to the entity holding them. Consent is obtained from the parent directly, in Persian, and recorded — including for cameras and for reporting to siblings.</p></div>
+    <div class="card t-x"><h4>Contract stack</h4><p class="small">Customer terms with the coordination-only boundary and a published SLA; care-manager agreements with confidentiality and conduct rules; partner agreements with the nursing agency, clinics, notary and accountant; and a data-processing appendix for the dashboard.</p></div>
+  </div>
+  <div class="note warn"><b>The single hardest line in the catalogue.</b> Cross-border rent remittance sits at the intersection of all four questions above. It is excluded from the price list on purpose. Opening that legal workstream now, in parallel with the pilot, is what makes the property layer launchable in Phase 3 rather than never.</div>
+</section>
+
+<section id="s16">
+  <div class="sechead"><div class="secno">16</div><div>
+    <h2>Roadmap</h2>
+    <p class="lede">Sequenced by what blocks each step, not by what is most exciting.</p>
+  </div></div>
+  <div id="roadmap"></div>
+</section>
+
+<section id="s17">
+  <div class="sechead"><div class="secno">17</div><div>
+    <h2>The next thirty days</h2>
+    <p class="lede">Validation costs almost nothing and decides whether anything else in this document is worth building.</p>
+  </div></div>
+  <div class="grid2">
+    <div class="card t-l"><h4>Twenty structured interviews</h4><p class="small">Diaspora adults with a parent in Iran. One question above all: what did you do the last time something went wrong, and what did it cost you in money, hours and favours?</p></div>
+    <div class="card t-l"><h4>Price sensitivity across all four tiers</h4><p class="small">A van Westendorp survey inside the same interviews: too cheap, cheap, expensive, too expensive. Four tiers means four passes, and it will probably move at least two of the prices in this document.</p></div>
+    <div class="card t-l"><h4>A fake-door test on the one-off menu</h4><p class="small">Publish the <span class="pat">just this once</span> menu with prices and a waiting-list button. Measure which of the 129 services people actually click. Expect the ranking to contradict the emotional narrative.</p></div>
+    <div class="card t-l"><h4>Verify the care-manager cost</h4><p class="small">Two real conversations in Tehran about what $360 a month buys, and how many hours survive travel and admin. Every margin figure here rests on this one number.</p></div>
+    <div class="card t-l"><h4>Test the parent gate on five parents</h4><p class="small">Before selling anything, ask five elderly parents in Iran whether they would accept a weekly visitor arranged by their child. If more than a third refuse, the product needs redesigning and no amount of marketing fixes it.</p></div>
+    <div class="card t-l"><h4>Build the sample report</h4><p class="small">One fictional but realistic monthly report, bilingual, with photographs, a checklist, a doctor summary and receipts. It is the landing page, the sales deck and the answer to the theft objection, all at once.</p></div>
+  </div>
+  <div class="note good"><b>The decision gate.</b> If the interviews show willingness to pay at or above the Visit tier, the parent gate passes above 70%, and the care-manager cost holds within 20% of $360, proceed to the pilot. If any one of the three fails, fix it before spending the €4,000 — not after.</div>
+</section>
+
+<section id="s18">
+  <div class="sechead"><div class="secno">18</div><div>
+    <h2>The naming system</h2>
+    <p class="lede">One pattern, used everywhere: the sentence the customer was already saying before they found you.</p>
+  </div></div>
+  <p>Every category and every service is named in the customer's first person, as a thing they cannot do from where they are. The pattern is <b class="pat">The [concrete noun] I can't [physical verb]</b>. It does three jobs at once: it describes the service, it states the problem, and it puts the customer's own words on your price list.</p>
+  <h3>The rules, so anyone can write the next one</h3>
+  <div class="grid2">
+    <div class="card t-l"><h4>Five things a name must do</h4><ul class="small">
+      <li>Speak in the first person, singular. Not "families can't", not "we handle".</li>
+      <li>Use a concrete noun you could photograph — a rug, a queue, a cake, a deed, a chair. Never an abstraction like "wellbeing" or "coordination".</li>
+      <li>Use a verb of physical presence — knock, sit, carry, walk, stand, hand over, dress, count.</li>
+      <li>Stay under six words, so it fits on a button and inside a sentence.</li>
+      <li>Be true. If the service does not actually remove that exact inability, the name is a lie and the first delivery exposes it.</li>
+    </ul></div>
+    <div class="card t-x"><h4>Four ways to get it wrong</h4><ul class="small">
+      <li><b>Cuteness over accuracy.</b> "The hug I can't give" sells nothing and promises something you cannot deliver.</li>
+      <li><b>Repeating verbs.</b> If three categories all say "attend", the set reads as a template rather than a voice.</li>
+      <li><b>Using it internally.</b> Care managers, protocols and the capacity model use plain operational names. Every service carries both, and the operational one is what appears on a rota.</li>
+      <li><b>Overuse at the wrong altitude.</b> Nine category names and a one-off menu carry the pattern beautifully. Applying it to invoices, legal terms and error messages turns a voice into a tic.</li>
+    </ul></div>
+  </div>
+  <h3>The nine categories</h3>
+  <div class="scroll"><table id="namingTable"></table></div>
+  <h3>The rest of the vocabulary</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Layer</th><th>Name</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Tiers</td><td><b>Voice · Visit · Watch · Vigil</b></td><td>One word each, escalating presence, and they alliterate without being twee. A customer understands the ladder before reading a single feature. The <span class="pat">I can't</span> line sits underneath as the subtitle — "for the weeks I can't call", "for the month I can't get there".</td></tr>
+        <tr><td>One-off menu</td><td><b class="pat">Just this once</b></td><td>Names the buyer's actual state of mind: not ready to commit, needs one thing done. It also makes the subscription the obvious second purchase without a sales pitch.</td></tr>
+        <tr><td>Prepaid credits</td><td><b class="pat">Once in a while</b></td><td>The honest description of how most people will use the service, and a natural step between a single job and a subscription.</td></tr>
+        <tr><td>Property module</td><td><b>Watch a door · Run a door · Fill a door · Rebuild a door</b></td><td>"Door" is the unit of pricing, so it should be the unit of language. Four verbs, one noun, instantly comparable.</td></tr>
+        <tr><td>Platform layer</td><td><b class="pat">Proof I can't get</b></td><td>The dashboard, vault, receipts and reports are not features; they are the evidence a person abroad has no way of gathering. Naming them as proof is also the answer to the theft objection.</td></tr>
+        <tr><td>The report</td><td><b>The monthly look</b></td><td>What the customer is buying is a look at something they cannot see. Naming the artefact plainly makes a late one feel like the broken promise it is.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note good"><b>Why bother.</b> In a category where the competitor is a cousin doing favours, the differentiator is not features — it is being the first service that describes the problem correctly. A price list written in the customer's own sentences does more sales work than any tagline.</div>
+</section>
+
+<footer style="padding:40px 0 20px;border-top:1px solid var(--rule);color:var(--ink2);font-size:13px">
+  <p>Version 4 · business plan, service catalogue, packaging and naming system · September 2026. Supersedes the v3 service and pricing document and the underlying feasibility draft. Every price, market figure and projection is a proposal awaiting the validation in section 17.</p>
+</footer>
+</div>
+
+<style>
+.bignum{font-family:Spectral,serif;font-size:34px;line-height:1;margin:6px 0 10px}
+/* job board */
+.board{margin:26px 0 10px;border-top:1px solid var(--rule)}
+.jrow{display:grid;grid-template-columns:minmax(150px,250px) 1fr minmax(96px,150px);gap:16px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--rule);cursor:pointer;background:none;border-left:0;border-right:0;
+  width:100%;text-align:left;font:inherit;color:inherit;border-top:0}
+.jrow:hover{background:var(--sunk)}
+.jrow[aria-expanded="true"]{background:var(--sunk)}
+.jrow .jn{font-family:Spectral,serif;font-size:17px;font-weight:600;font-style:italic}
+.jrow .jn span{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:12px;font-style:normal;font-weight:400;color:var(--ink2);margin-top:2px}
+.jbar{display:flex;height:24px;border-radius:2px;overflow:hidden}
+.jbar i{font-style:normal;font-size:11.5px;font-weight:600;color:#fff;display:flex;align-items:center;justify-content:center;
+  min-width:0;transition:flex-grow .9s cubic-bezier(.2,.7,.2,1)}
+.jbar i.gg{background:var(--g)}.jbar i.ss{background:var(--s)}.jbar i.xx{background:var(--x)}
+.jrow .jc{font-size:12.5px;color:var(--ink2);text-align:right}
+.jrow .jc b{display:block;color:var(--ink);font-size:13px}
+@media(max-width:720px){.jrow{grid-template-columns:1fr;gap:7px}.jrow .jc{text-align:left}}
+.detail{background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--lapis);padding:20px;margin:18px 0 0}
+.detail h4{font-family:Spectral,serif;font-size:20px;font-style:italic;margin-bottom:6px}
+.detail ul{columns:2;column-gap:28px;font-size:14px}
+@media(max-width:620px){.detail ul{columns:1}}
+/* tiers */
+.tiergrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:22px}
+.tier{background:var(--card);border:1px solid var(--rule);display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.tier.best{border-color:var(--lapis);border-width:2px}
+.tier .hd{padding:18px 18px 14px;border-bottom:1px solid var(--rule)}
+.tier .nm{font-family:Spectral,serif;font-size:24px;font-weight:600}
+.tier .pr{font-family:Spectral,serif;font-size:38px;line-height:1;margin:6px 0 2px}
+.tier .pr small{font-size:14px;color:var(--ink2);font-family:"IBM Plex Sans",sans-serif}
+.tier .sub{font-size:13px;color:var(--ink2);font-style:italic;font-family:Spectral,serif}
+.tier dl{margin:0;padding:14px 18px;font-size:13.5px;flex:1}
+.tier dl div{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dotted var(--rule)}
+.tier dl dt{color:var(--ink2)} .tier dl dd{margin:0;font-weight:600;text-align:right}
+.tier .ft{padding:12px 18px 16px;font-size:12.5px;color:var(--ink2);border-top:1px solid var(--rule)}
+.badge{display:inline-block;background:var(--lapis);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-bottom:8px}
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 12px}
+button.f{font:inherit;font-size:13px;padding:5px 12px;border:1px solid var(--rule);background:var(--card);
+  color:var(--ink2);border-radius:999px;cursor:pointer}
+button.f[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.f:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+/* configurator */
+.cfgwrap{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;margin-top:8px}
+@media(max-width:820px){.cfgwrap{grid-template-columns:1fr}}
+.cfgpanel{background:var(--card);border:1px solid var(--rule);padding:20px;box-shadow:var(--shadow)}
+.cfgrow{padding:12px 0;border-bottom:1px solid var(--rule)}
+.cfgrow:last-child{border-bottom:0}
+.cfgrow h4{margin-bottom:6px}
+.cfgrow .hint{font-size:12.5px;color:var(--ink2);margin-bottom:8px}
+.out{position:sticky;top:78px;background:var(--ink);color:var(--paper);padding:22px}
+.out .big{font-family:Spectral,serif;font-size:46px;line-height:1;margin:4px 0}
+.out .lbl{font-size:12px;opacity:.72}
+.out .line{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dotted rgba(255,255,255,.18);font-size:13.5px}
+.out .line b{font-weight:600}
+.out .internal{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22)}
+.out .internal .line{border-bottom-color:rgba(255,255,255,.12);opacity:.85}
+.oneoff{margin-top:14px;font-size:13px;opacity:.9}
+/* charts */
+.chart{margin-top:24px;background:var(--card);border:1px solid var(--rule);padding:20px 18px}
+.chart h4{margin-bottom:2px}
+.chart .cap{font-size:12.5px;color:var(--ink2);margin-bottom:16px}
+.hbar{display:grid;grid-template-columns:minmax(78px,150px) 1fr;gap:12px;align-items:center;margin-bottom:9px;font-size:13.5px}
+.hbar .t{color:var(--ink2)}
+.hbar .b{height:22px;background:var(--lapis);border-radius:2px;display:flex;align-items:center;padding-left:8px;
+  color:#fff;font-size:12px;font-weight:600;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.hbar .b.alt{background:var(--turq)} .hbar .b.warm{background:var(--saffron)} .hbar .b.deep{background:var(--madder)}
+.funnelstep{display:grid;grid-template-columns:minmax(120px,210px) 1fr;gap:12px;align-items:center;margin-bottom:8px}
+.funnelstep .fb{height:30px;background:linear-gradient(90deg,var(--lapis),var(--turq));border-radius:2px;
+  display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:600;font-size:13px;width:0;
+  transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.funnelstep .fl{font-size:13.5px}
+.funnelstep .fl span{display:block;font-size:12px;color:var(--ink2)}
+.kpi{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--turq);padding:16px 18px}
+.kpi .t{font-weight:600;font-size:15px}
+.kpi .g{font-family:Spectral,serif;font-size:22px;margin:4px 0 6px}
+.kpi .w{font-size:13px;color:var(--ink2)}
+.rm{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+.rm .ph{font-family:Spectral,serif;font-weight:600;font-size:15px}
+.rm .ph span{display:block;font-size:12px;color:var(--ink2);font-family:"IBM Plex Sans",sans-serif;font-weight:400}
+.rm .gate{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.rm .bar{height:6px;border-radius:3px;background:var(--lapis);margin-bottom:8px;opacity:.85}
+@media(max-width:620px){.rm{grid-template-columns:1fr;gap:6px}}
+/* tree */
+.tree{margin-top:12px;background:var(--card);border:1px solid var(--rule);padding:6px 16px 10px}
+.tree details{border-bottom:1px solid var(--rule)}
+.tree > details:last-child{border-bottom:0}
+.tree summary{cursor:pointer;display:flex;gap:10px;align-items:baseline;list-style:none;padding:11px 2px;
+  font-family:Spectral,serif;font-size:17px;font-weight:600}
+.tree summary::-webkit-details-marker{display:none}
+.tree summary::before{content:"\203A";color:var(--lapis);font-size:19px;line-height:1;display:inline-block;transition:transform .18s ease}
+.tree details[open] > summary::before{transform:rotate(90deg)}
+.tree summary:hover{color:var(--lapis)}
+.tree .cnt{margin-left:auto;font-family:"IBM Plex Sans",sans-serif;font-size:12px;font-weight:400;color:var(--ink2);white-space:nowrap}
+.tree .mix{display:inline-flex;gap:3px;align-items:center;margin-left:4px}
+.tree .dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.tree .kids{margin:0 0 8px 14px;border-left:2px solid var(--rule);padding-left:14px}
+.tree details details > summary{font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;font-weight:600;padding:8px 2px}
+.tree .svc{padding:7px 0;border-bottom:1px dotted var(--rule);font-size:14px}
+.tree .svc:last-child{border-bottom:0}
+.tree .svc b{font-family:Spectral,serif;font-style:italic}
+.tree .sub{display:block;color:var(--ink2);font-size:12.5px}
+.tree .cav{color:var(--madder);font-size:12px}
+@media (prefers-reduced-motion: reduce){.tree summary::before{transition:none}}
+/* configurator refinements */
+.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px}
+.opt{border:1px solid var(--rule);background:var(--card);padding:10px 12px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.opt:hover{border-color:var(--lapis)}
+.opt[aria-pressed="true"]{border-color:var(--lapis);border-width:2px;background:color-mix(in srgb,var(--lapis) 8%,var(--card))}
+.opt .on{font-family:Spectral,serif;font-size:17px;font-weight:600;display:block}
+.opt .op{font-size:12px;color:var(--ink2)}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:34px;height:34px;border:1px solid var(--rule);background:var(--card);color:var(--ink);
+  font-size:18px;line-height:1;cursor:pointer;border-radius:2px}
+.stepper button:hover{border-color:var(--lapis)}
+.stepper .val{font-family:Spectral,serif;font-size:24px;min-width:26px;text-align:center}
+.cfgrow.off{opacity:.45}
+.quota{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.quota span{font-size:12px;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:2px 9px}
+.reset{font-size:12.5px;color:var(--ink2);background:none;border:0;cursor:pointer;text-decoration:underline;padding:0}
+
+/* package builder */
+.bld{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:10px;align-items:start}
+@media(max-width:860px){.bld{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--rule);padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.step > h4{display:flex;gap:10px;align-items:baseline;font-size:15px}
+.step > h4 .n{font-family:Spectral,serif;font-size:20px;color:var(--lapis);font-weight:600}
+.step .q{font-family:Spectral,serif;font-size:19px;font-weight:600}
+.step .hint{font-size:12.5px;color:var(--ink2);margin:4px 0 14px}
+.presets{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.presets button{font:inherit;font-size:12.5px;padding:6px 12px;border:1px dashed var(--rule);background:none;
+  color:var(--ink2);cursor:pointer;border-radius:999px}
+.presets button:hover{border-style:solid;border-color:var(--lapis);color:var(--lapis)}
+.tcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.tcard{border:1px solid var(--rule);background:var(--card);padding:13px 14px;cursor:pointer;text-align:left;
+  font:inherit;color:inherit;display:flex;flex-direction:column;gap:8px}
+.tcard:hover{border-color:var(--lapis)}
+.tcard[aria-pressed="true"]{border-color:var(--lapis);box-shadow:inset 0 0 0 1px var(--lapis);
+  background:color-mix(in srgb,var(--lapis) 7%,var(--card))}
+.tcard .tn{font-family:Spectral,serif;font-size:19px;font-weight:600;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tcard .tn i{font-style:normal;font-size:15px;color:var(--ink2)}
+.tcard ul{margin:0;padding-left:15px;font-size:12.5px;color:var(--ink2)}
+.tcard ul li{margin:0 0 2px}
+.tcard[aria-pressed="true"] ul{color:var(--ink)}
+.addrow{display:flex;gap:12px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;
+  background:none;border:1px solid var(--rule);padding:11px 13px;cursor:pointer;margin-bottom:8px}
+.addrow:hover{border-color:var(--lapis)}
+.addrow[aria-pressed="true"]{border-color:var(--lapis);background:color-mix(in srgb,var(--lapis) 7%,var(--card))}
+.addrow .box{width:20px;height:20px;border:1px solid var(--rule);flex:0 0 auto;display:flex;align-items:center;
+  justify-content:center;font-size:13px;color:var(--paper);background:var(--card)}
+.addrow[aria-pressed="true"] .box{background:var(--lapis);border-color:var(--lapis)}
+.addrow .tx{flex:1}
+.addrow .tx b{display:block;font-size:14px}
+.addrow .tx span{font-size:12.5px;color:var(--ink2)}
+.addrow .pz{font-weight:600;font-size:14px;white-space:nowrap}
+.pill{display:flex;gap:6px;flex-wrap:wrap}
+.pill button{font:inherit;font-size:13px;min-width:44px;padding:7px 12px;border:1px solid var(--rule);
+  background:var(--card);color:var(--ink2);cursor:pointer}
+.pill button[aria-pressed="true"]{border-color:var(--lapis);color:var(--ink);font-weight:600;
+  background:color-mix(in srgb,var(--lapis) 8%,var(--card))}
+.quote{position:sticky;top:78px;background:var(--ink);color:var(--paper);padding:0;overflow:hidden}
+.quote .qh{padding:16px 20px 12px;border-bottom:1px solid rgba(255,255,255,.18)}
+.quote .qh .lbl{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.6}
+.quote .qh .big{font-family:Spectral,serif;font-size:44px;line-height:1.05;margin:2px 0 0}
+.quote .qh .per{font-size:13px;opacity:.75}
+.quote .qb{padding:14px 20px 18px}
+.quote .li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:13.5px;
+  border-bottom:1px dotted rgba(255,255,255,.16)}
+.quote .li:last-child{border-bottom:0}
+.quote .li b{font-weight:600;white-space:nowrap}
+.quote .sect{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;opacity:.6;margin:16px 0 4px}
+.quote .buys{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.quote .buys span{font-size:12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:2px 9px}
+.quote .empty{font-size:13px;opacity:.7;padding:4px 0 0}
+.quote details{margin-top:14px;border-top:1px solid rgba(255,255,255,.22);padding-top:10px}
+.quote summary{cursor:pointer;font-size:12.5px;opacity:.75;list-style:none}
+.quote summary::-webkit-details-marker{display:none}
+.quote summary::before{content:"\203A ";display:inline-block;transition:transform .18s}
+.quote details[open] summary::before{transform:rotate(90deg)}
+.quote details .li{opacity:.85}
+.quote .rs{margin-top:14px;font-size:12.5px;opacity:.7;background:none;border:0;color:inherit;
+  cursor:pointer;text-decoration:underline;padding:0}
+/* scenario grid */
+.sgrid{display:grid;grid-template-columns:110px repeat(3,1fr);gap:8px;margin-top:18px;min-width:620px}
+.sgrid .hd{font-size:12.5px;color:var(--ink2);align-self:end;padding-bottom:6px}
+.sgrid .rh{font-family:Spectral,serif;font-size:15px;font-weight:600;align-self:center;padding-right:8px}
+.sgrid .rh span{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:11.5px;font-weight:400;color:var(--ink2)}
+.scell{border:1px solid var(--rule);background:var(--card);padding:13px;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.scell:hover{border-color:var(--lapis)}
+.scell[aria-pressed="true"]{border-color:var(--lapis);border-width:2px;background:color-mix(in srgb,var(--lapis) 7%,var(--card))}
+.scell .mrr{font-family:Spectral,serif;font-size:23px;line-height:1}
+.scell .sub{font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.35}
+.scell .gm{font-size:12px;font-weight:600;color:var(--turq);margin-top:6px}
+.sdetail{margin-top:18px;background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--lapis);padding:20px}
+.sdetail h4{font-family:Spectral,serif;font-size:21px;margin-bottom:4px}
+.sdl{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px dotted var(--rule);font-size:13.5px}
+.sdl.tot{border-bottom:0;border-top:1px solid var(--rule);margin-top:4px;padding-top:8px;font-weight:600}
+</style>
+
+<script>
+const REDUCED = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+const SECTIONS = [["s1","Summary"],["s2","Problem"],["s3","Model"],["s4","Market"],["s5","Competition"],
+["s6","Services"],["s7","Delivery"],["s8","Pricing"],["s9","Configurator"],["s10","Sales"],["s11","Unit economics"],
+["s12","Financials"],["s13","Metrics"],["s14","Risk"],["s15","Legal"],["s16","Roadmap"],["s17","Next 30 days"],["s18","Naming"]];
+
+const JOBS = {
+ j1:["Calls I can't make","Daily contact, visits, reporting, and the dependents beyond the parent",
+   "The visible, reassuring layer — the part the child actually feels. A scripted weekly call against a checklist, a scheduled visit with timestamped arrival and photographs, a monthly narrative report sent to every registered payer. Underneath it sits the observation work that matters clinically: eating, hygiene, mobility, sleep and mood watched over time and flagged, never diagnosed. It also stretches past the parent — a sibling, an aunt, a disabled adult relative, the cat."],
+ j2:["Appointments I can't attend","Coordination around doctors, medication, records and equipment",
+   "Coordination only, never clinical advice. Someone finds and books the specialist, prepares a symptom log and a question list agreed with the child beforehand, sits in the consultation taking notes, and writes up what the doctor said in Persian and English. That bilingual summary is the highest-value five minutes in the whole service. The heavier items — adherence checks, chronic monitoring, surgery, home nursing — need nursing-grade staff or a licensed partner."],
+ j3:["Nights I can't be there","Standby capacity, escalation, hospital presence, post-incident reporting",
+   "Every service here is class X, because none of them is a task — they are a commitment to be reachable and to arrive. A single number answered by a human with the family's file open. A named responder rather than a rota. A pre-agreed hospital so admission is not negotiated from scratch at 3am. Hospital-stay accompaniment, because Iranian hospital practice expects a family member to be present and that is exactly what is missing. And a written timeline within 24 hours of anything going wrong."],
+ j4:["Goodbyes I can't say","Cognitive decline, palliative care, death, and remembrance",
+   "The most culturally sensitive part of the catalogue and the strongest referral moment in the lifecycle. Dementia supervision and psychological support are referral-and-follow-up only, never performed in-house. End of life means hospice liaison, the flight booked while the child is in no state to book anything, death registration, and a funeral arranged remotely with a stream for relatives abroad. Grave maintenance afterwards costs almost nothing and keeps an account that has no other reason to exist."],
+ j5:["Doors I can't check","Inspection, tenancy, repairs, municipal administration, sale",
+   "The revenue-scale layer, and the best margin in the business. A fixed-route walkthrough with date-stamped media on a standard checklist is the core deliverable; everything else compounds from it. Vacant care, tenant sourcing, rent collection, repair supervision with two quotes and before-and-after photographs, municipal paperwork, land and boundary checks. The transactional end — lease registration, deposits, tax filing, sale — requires licensed partners, and cross-border remittance requires counsel."],
+ j6:["Queues I can't stand in","Bills, documents, government offices, pensions",
+   "The cheapest family to deliver and the easiest to sell to a stranger. Utility bills on a standing arrangement, identity document renewals, the specific government window that has to be queued at in person, vehicle inspection and fines, academic transcripts, mail consolidated and scanned. Two items here have demand entirely independent of elder care: certified translation with legalisation and courier, and confirming a pension is actually arriving."],
+ j7:["Gifts I can't hand over","Occasions, rituals, household support, a younger relative",
+   "Highest frequency, lowest cost, best trust-builder in the catalogue. Flowers and cake delivered and photographed with the recipient. A Nowruz package: spring clean, haft-sin, eidi to a named list. Charity executed on the family's behalf with a receipt, which is impossible to do credibly from abroad. Around it sits the household layer — a supervised cleaner, a standing grocery order, the fridge fixed, the heater serviced before autumn, and someone teaching a 78-year-old to answer a video call."],
+ j8:["Homecomings I can't prepare","Their arrival in Iran, and the parent's visit to Canada",
+   "High margin, seasonal, and it serves the payer directly rather than the parent. The house warmed and stocked before landing, someone at the airport, a SIM already active, a vetted driver for day one. On departure, utilities down, perishables cleared, the property handed back to standing vacant care. In the other direction: invitation documents, biometrics appointments and translated financial evidence for a parent applying to visit Canada."],
+ j9:["Papers I can't sign","Notarial, registry, court, and read-only financial follow-up",
+   "The platform is always coordinator and never principal. Power of attorney is the gateway document that makes most of the property and financial work legally possible at all. Title transfers, inheritance and estate division, tax clearance, hearing dates relayed from a court. The financial side is deliberately narrow and read-only: balances and statements retrieved, dividends chased, instruments tracked. Custody, trading and currency transfer are refused by policy, permanently."],
+ j0:["Proof I can't get","The platform layer — included in every tier, never metered",
+   "Not features so much as the reason any of the services above is worth paying for. Without them you sell promises; with them you sell evidence."]
+};
+const WAVES = {
+ w1:["One trained agent, now","Nothing needs building first beyond vetting and receipt discipline. One person can run all of it on a single route."],
+ w2:["Protocol and a named manager","Needs the visit protocol, the report template, the dashboard and a manager the family knows by name. This is the pilot's real deliverable."],
+ w3:["Partners, standby and cover","Needs a nursing agency, a clinic relationship, contractors, a second manager for on-call depth, and liability cover where obtainable."],
+ w4:["Licensed partner and counsel","Needs a notary, accountancy or legal practice under contract, and in two cases a legal opinion before the line can be priced at all."]
+};
+const CLS={g:"General",s:"Semi-special",x:"Special"};
+// [customer name, operational description, job, class, wave, caveat]
+const D=[
+["The check-in I can't make every week","Scripted wellness call against a fixed checklist, logged with a note","j1","g","w1",""],
+["The phone I can't set up for her","Facilitated video call — agent sets up the device, stays, troubleshoots","j1","g","w1",""],
+["The walk I can't take with him","Companionship visit: accompanied walk, reading, tea, a trip to the bazaar","j1","g","w1","Sold as social contact, not care"],
+["The chair I can't sit in","Proxy presence at a family occasion, gift delivered, video sent","j1","g","w1",""],
+["The cat I can't feed","Pet care: vet visits, food supply, cover during hospitalisation","j1","g","w1",""],
+["The door I can't knock on","Scheduled in-person visit, standard protocol, photo evidence, timestamped arrival","j1","s","w2",""],
+["The look I can't take myself","Monthly health and wellbeing report: written narrative plus photographs","j1","s","w2","Sent to all registered payers, not just the primary"],
+["The change I can't notice from here","Structured observation of eating, hygiene, mobility, sleep and mood","j1","s","w2","Deviations flagged, never diagnosed"],
+["The rug I can't move out of the way","Home safety audit: fall hazards, bathroom, lighting, stairs, gas and water heaters","j1","s","w2","At onboarding, repeated annually"],
+["The uncle I can't check on","General health follow-up for any family member in Iran","j1","s","w2",""],
+["The silence I can't drive over to","Missed check-in escalation: no answer triggers a same-day physical visit","j1","x","w3","A standby commitment, not a task"],
+["The empty house I can't sit in","Solo-living elder tier: daily contact and a materially higher standby commitment","j1","x","w3",""],
+["The brother I can't look after","Adult relative with a disability: supervision, therapy scheduling, benefit and guardianship admin","j1","x","w4",""],
+["The appointment I can't book from here","Finding, booking and confirming a named specialist, with a reminder to the elder","j2","g","w1",""],
+["The teeth I can't nag him about","Dental, optometry, audiology and podiatry — the routinely neglected appointments","j2","g","w1","High satisfaction per dollar; nobody else is chasing these"],
+["The flu shot I can't remind her about","Vaccination tracking: influenza, pneumococcal, shingles, recorded in the vault","j2","g","w1",""],
+["The waiting room I can't sit in","Accompaniment: transport, waiting, note-taking, questions asked on the child's behalf","j2","s","w2",""],
+["The questions I can't ask in the room","Pre-visit preparation: symptom log, prior records and imaging, question list agreed in advance","j2","s","w2",""],
+["The words I can't hear the doctor say","Bilingual post-visit summary — diagnosis, prescription, next step, in Persian and English","j2","s","w2","The highest-value five minutes in the service"],
+["The pills I can't count out","Prescription refill and pharmacy run, weekly organiser set up and photographed","j2","s","w2",""],
+["The lab slip I can't drive her to","Lab and imaging logistics: booking, fasting instructions, transport, results to the vault","j2","s","w2",""],
+["The file I can't read","Medical records scanned, indexed and translated into English for the child's own physician","j2","s","w2",""],
+["The doubt I can't settle alone","Second-opinion facilitation: records packaged for a doctor abroad, response relayed back","j2","s","w2","Strong differentiator, costs almost nothing"],
+["The walker I can't carry up the stairs","Equipment sourced, delivered, installed and demonstrated — walker, bed, oxygen, monitors","j2","s","w2",""],
+["The claim I can't file for him","Health insurance navigation: paperwork, claim submission, reimbursement chasing","j2","s","w2",""],
+["The dose I can't watch her take","Medication adherence verified against the prescription, logged per dose window","j2","x","w3",""],
+["The numbers I can't track","Chronic condition monitoring against thresholds agreed with the treating physician","j2","x","w3","Requires nursing-grade staff"],
+["The surgery I can't wait outside","Surgery coordination: pre-op clearance, admission, deposit, post-op presence, discharge handover","j2","x","w3",""],
+["The wound I can't dress","Home nursing via licensed partner agency: injections, wound care, catheter care, physiotherapy and occupational therapy","j2","x","w3","Partner delivers; platform coordinates and quality-checks"],
+["The history I can't recite at admissions","Emergency file per client: blood type, allergies, medications, physician, next of kin, consents","j3","x","w2","Cheap to prepare — build it with the protocol"],
+["The number I can't be at the end of","24/7 emergency line answered by a human with the family's file open","j3","x","w3","Available to the elder and every registered payer"],
+["The someone I can't send","Named on-call responder — a specific person, not a rota, with a published arrival target","j3","x","w3",""],
+["The ambulance I can't call","Ambulance and hospital coordination: dispatch, accompaniment, admission, authorised deposits","j3","x","w3",""],
+["The hospital I can't argue with at 3am","Standing relationship with one or two partner facilities in Tehran","j3","x","w3",""],
+["The family I can't reach in time","Documented notification escalation tree with timeouts: payer, sibling, local relative","j3","x","w3",""],
+["The night I can't spend on that chair","Hospital-stay accompaniment: day presence and night attendant arrangement","j3","x","w3","Iranian hospital practice expects a family member present"],
+["The story I can't piece together after","Written post-incident timeline within 24 hours of any event","j3","x","w3","What protects you reputationally when an outcome is bad"],
+["The grave I can't visit","Annual or seasonal grave maintenance and memorial visit with photo report","j4","g","w1","Retains an account whose original reason has ended"],
+["The relief I can't give my mother","Respite visits for the healthy parent caring for the unwell one","j4","s","w2","The invisible second client"],
+["The flight I can't book while crying","Emergency travel logistics for the child: flight, visa position, documents, arrival handling","j4","s","w2",""],
+["The name I can't remind him of","Dementia routine supervision: visit rhythm, environmental adaptation, wandering risk, carer coaching","j4","x","w4",""],
+["The forgetting I can't measure","Referral to a geriatrician or neurologist when observations warrant it","j4","x","w4","Referral only — never screening in-house"],
+["The sadness I can't sit with","Referral to a licensed psychologist or psychiatrist, with attendance follow-up","j4","x","w4",""],
+["The pain I can't ease","Hospice and pain management liaison, comfort care arranged at home","j4","x","w4",""],
+["The papers I can't file that week","Death registration and permits: certificate, burial permit, mortuary and cemetery coordination","j4","x","w4",""],
+["The funeral I can't stand at the door of","Khatm and tarhim arranged remotely: venue, announcements, catering, clergy, live stream","j4","x","w4","Build this properly or not at all"],
+["The meeting I can't attend","Building association representation: meetings attended, charges paid, minutes relayed","j5","g","w2",""],
+["The rooms I can't walk through","Periodic inspection: fixed-route walkthrough, date-stamped media, standard checklist","j5","s","w2","The core deliverable of the property line"],
+["The empty flat I can't air out","Vacant care: ventilation, leak and damp check, pest control, winterisation, utilities, mail","j5","s","w2",""],
+["The tenant I can't interview","Tenant sourcing and vetting: listing, viewings on the owner's behalf, references, shortlist","j5","s","w2",""],
+["The city hall I can't visit","Municipal and utility administration: renovation levies, account transfers, completion permits, meters","j5","s","w2",""],
+["The land I can't walk","Land and agricultural inspection: boundary check, encroachment detection, seasonal report","j5","s","w2","Common inherited asset, almost never monitored"],
+["The rent I can't knock for","Rent collection, receipting, arrears chasing, monthly statement to the owner","j5","s","w3","Never commingled with operating transfers"],
+["The leak I can't look at","Repair coordination: contractor sourcing, two quotes minimum, supervision, before and after photos","j5","s","w3","Receipts passed through at cost"],
+["The fire I can't insure against from here","Property insurance arranged and renewed: fire, earthquake, third-party liability","j5","s","w3",""],
+["The builders I can't stand over","Renovation project management: scope, budget, milestone photo reporting, staged payments","j5","x","w3","High value, high dispute potential"],
+["The lease I can't sign","Lease drafting and registration via licensed partner office","j5","x","w4","Partner signs; platform coordinates"],
+["The deposit I can't hold","Rahn handling, reconciliation and return","j5","x","w4","Custody of third-party money needs a defined trust arrangement"],
+["The tenant I can't argue with","Tenant relations and eviction support: complaints, notice service, lawyer instruction","j5","x","w4",""],
+["The tax file I can't close","Rental income tax filing via licensed accountant partner","j5","x","w4",""],
+["The sale I can't be at the table for","Sale or purchase support: valuation, viewings, preliminary contract oversight, notary coordination","j5","x","w4","Highest value per transaction and highest fraud exposure"],
+["The money I can't move","Rent converted and remitted to the owner abroad","j5","x","w4","Unpriced and unsold until counsel clears outbound customer money"],
+["The bill I can't pay at the counter","Utility bill payment on a standing arrangement, receipts posted to the dashboard","j6","g","w1",""],
+["The passport I can't renew","Identity document renewal: passport, national card, birth certificate, driving licence","j6","g","w1",""],
+["The queue I can't stand in","Government office follow-up: registry, police, tax and social security windows","j6","g","w1","The queuing nobody wants to fly home for"],
+["The car I can't get inspected","Vehicle administration: insurance renewal, technical inspection, fines, plate transfer","j6","g","w1",""],
+["The transcript I can't collect","Academic document retrieval: transcripts, degree verification, ministry confirmations","j6","g","w1",""],
+["The letter I can't open","Mail and package handling: receipt, consolidation, scanning, onward forwarding","j6","g","w1",""],
+["The stamp I can't get on it","Certified translation and legalisation, couriered to Canada or the EU","j6","s","w2","Standalone demand; deserves its own landing page"],
+["The pension I can't chase","Pension collection oversight: confirming arrival, chasing the fund when it stops","j6","s","w2",""],
+["The cake I can't carry in","Flowers, cake and gift delivery, photographed with the recipient","j7","g","w1","Same-day capability in Tehran; this is the referral engine"],
+["The Nowruz I can't come home for","Spring clean, haft-sin set up and photographed, sabzeh, eidi to a named list","j7","g","w1",""],
+["The Yalda I can't sit through","Seasonal and religious observances: Yalda spread, Ramadan iftar, Muharram","j7","g","w1",""],
+["The nazr I can't hand out myself","Charity executed on the family's behalf, evidenced with photo and receipt","j7","g","w1","Impossible to do credibly from abroad"],
+["The wedding I can't dance at","Representation and gifting at weddings and engagements where absence would be noticed","j7","g","w1",""],
+["The shopping I can't drop off","Standing grocery and pharmacy order against a list the child adjusts remotely","j7","g","w1",""],
+["The fridge I can't fix","Vetted trades panel sourced and supervised: electrician, plumber, appliance, HVAC and boiler, computer and network technician, locksmith","j7","g","w1",""],
+["The WhatsApp I can't teach over the phone","One-off technology setup: smartphone and tablet, app installation, video calling configured, scam awareness","j7","g","w1","Directly increases use of your own video-call service"],
+["The heater I can't service before autumn","Seasonal servicing: heating before autumn, cooling before summer","j7","g","w1","Predictable, schedulable, batchable across clients"],
+["The homework I can't sit beside","Tutoring and university-entrance counselling sourced and scheduled for a sponsored relative","j7","g","w1",""],
+["The registration I can't queue for","School enrolment administration: paperwork, fees, document submission","j7","g","w1",""],
+["The party I can't throw","Remote family event coordination including venue and catering","j7","s","w2",""],
+["The cleaner I can't supervise","Domestic staff vetted, scheduled, paid and supervised on the family's behalf","j7","s","w2",""],
+["The eyes I can't have in the room","Family-facing camera installation and configuration","j7","s","w2","Requires the elder's documented, informed consent"],
+["The application I can't assemble from here","Study-abroad document preparation: transcripts, translations, attestations, courier","j7","s","w2",""],
+["The arrival I can't be met at","Airport reception: meet and greet, CIP arrangement, baggage, transfer","j8","g","w1",""],
+["The car I can't have waiting","Vetted driver for the stay, or a rental arranged and delivered","j8","g","w1",""],
+["The number I can't switch on before landing","SIM card and data package registered and active on arrival","j8","g","w1",""],
+["The trip north I can't plan from here","Domestic travel booking: intercity flights and trains, hotels, coast and island arrangements","j8","g","w1",""],
+["The house I can't warm up before I land","Home preparation before arrival: deep clean, groceries, heating, linens, internet checked","j8","s","w2","The most appreciated item in this family"],
+["The house I can't close up behind me","Post-departure closing: utilities down, perishables cleared, property handed to vacant care","j8","s","w2",""],
+["The visa I can't fill in for her","Canada visa support for the parent: invitation documents, biometrics, translated evidence, review","j8","s","w2","Reverse-direction service, same customer, low risk"],
+["The dentist I can't book for my own trip","Inbound medical tourism coordination: dental, ophthalmology, cosmetic procedures","j8","s","w4","Referral fees conflict with the coordination-only boundary — pick a position"],
+["The certificate I can't request","Civil certificate procurement: marriage, divorce, birth, death, plus legalisation for use abroad","j9","s","w2",""],
+["The signature I can't give in person","Power of attorney drafted via notary partner, with consular authentication guidance and scope limits","j9","x","w4","The gateway document for most property and financial work"],
+["The deed I can't transfer","Property title transfer: single-page deed conversion, transfer registration, notary coordination","j9","x","w4",""],
+["The inheritance I can't divide","Estate work: heirship certification, heir documentation, division, inheritance tax","j9","x","w4","Predictable follow-on from end-of-life service"],
+["The tax clearance I can't obtain","Tax follow-up: settlement certificates, outstanding assessments, objection filing via accountant","j9","x","w4",""],
+["The hearing I can't attend","Court case monitoring: hearing dates, filing status, lawyer liaison, reporting abroad","j9","x","w4",""],
+["The balance I can't see","Account status and statement retrieval under a scoped power of attorney","j9","x","w4","Read-only by policy"],
+["The dividend I can't claim","Securities and dividend follow-up: portfolio monitoring, chasing entitlements never received","j9","x","w4","Read-only by policy"],
+["The cheque I can't track","Instrument follow-up: deposit renewal, cheque and promissory note tracking, maturity reminders","j9","x","w4","No custody, no discretionary trading, ever"],
+["The list I can't work through in one afternoon","Multi-task visit: several errands, checks and deliveries batched into one attended trip with a single report","j1","s","w2","Priced as one semi-special rather than four generals — the batching discount made explicit"],
+["The hour I can't spare from here","Open hourly assistance: agent time the family directs on the day, two-hour minimum","j1","g","w1","Not for clinical tasks or anything requiring a qualification"],
+["The doctor I can't bring to her door","Home doctor visit arranged via licensed partner, with notes to the vault","j2","x","w3","Partner practises; platform coordinates and never advises"],
+["The blood test I can't take her out for","At-home sample collection via partner laboratory, fasting instructions, results collected and uploaded","j2","x","w3",""],
+["The week after the hospital I can't be there for","Post-discharge package: daily checks, medication reconciliation, wound and mobility follow-up, next appointment booked","j2","x","w3","The period with the highest readmission risk and the least coverage"],
+["The hours I can't be in the house","Professional home attendant via partner agency: personal care, bathing, dressing, hourly, daily or live-in","j2","x","w3","Partner-employed. Requires the elder's consent, revisited as needs change"],
+["The window I can't walk him up to","Accompanied appearance where the elder must attend in person: biometrics, signatures, fingerprints, notarial appearances","j6","s","w2",""],
+["The bank counter I can't walk her to","Banking accompaniment: card renewal, pension card collection, signature, statement printing, branch queuing","j6","s","w2","No handling of cards, cash or credentials, ever"],
+["The form I can't fill in from this account","Iranian online portals and e-services: form completion, uploads, appointment booking, payments on the family's instruction","j6","g","w2","One-time codes handled with the elder present; credentials never stored"],
+["The account I can't create for her","Account and credential setup on portals, health systems and banking apps, handed to the family on completion","j6","g","w2","Credentials are never retained by the platform or the agent"],
+["The router I can't reset over the phone","Home internet and network: subscription setup, modem and router, Wi-Fi coverage, smart TV, troubleshooting","j7","g","w1",""],
+["The lesson I can't sit next to her for","Recurring digital literacy coaching in short sessions: smartphone, tablet, computer basics, video calling, scam awareness","j7","g","w1","Distinct from one-off setup — the repetition is the product"],
+["The photos I can't get off her phone","Digital errands: file and photo transfer, backup, printing, scanning, sending on","j7","g","w1",""],
+["The thing I can't drop at the repair shop","Item drop-off and collection: appliances, phones, spectacles, watches, shoes, with receipt and photo","j7","g","w1",""],
+["The lift I can't give her","Vetted driver for the elder's own trips, standing arrangement or ad hoc","j7","g","w1","Distinct from the visiting child's rental car"],
+["The burst pipe I can't deal with tonight","Urgent same-day trade dispatch: plumber, electrician, boiler, locksmith, against an authorised spend cap","j7","x","w3","A standby commitment on the property side, priced like one"],
+["The gate I can't walk her to","Travelling-elder assistance: check-in, wheelchair, escort to gate, met on arrival, at airports and bus or rail terminals","j8","s","w2",""],
+["The lawyer I can't sit down with","Brokered consultation with a Persian-speaking lawyer, legal consultant, accountant or tax specialist, scheduled and minuted for the family abroad","j9","x","w4","Partner fee at cost plus coordination fee, quoted before booking"],
+["The timeline I can't keep in my head","Family dashboard and activity log: visits, calls, reports, photos, receipts in one timeline","j0","g","w1",""],
+["The Persian I can't always read","Every deliverable produced in Persian and English","j0","g","w1","The second-generation child often reads English more comfortably"],
+["The documents I can't find when I need them","Family document vault: medical, property and legal documents digitised and indexed","j0","g","w1","The only real switching cost in the model"],
+["The one thing I can't wait a month for","À-la-carte request marketplace: one-off tasks priced individually","j0","g","w1","Acquisition funnel for non-subscribers, overflow capture for subscribers"],
+["The receipts I can't verify","Expense pass-through with itemised receipts visible in the dashboard","j0","g","w1","Worth more as a sales asset than any markup would earn"],
+["The bill I can't pay alone","Multi-payer sibling billing split, up to four payers charged separately","j0","s","w2","Direct lever on conversion and revenue per account"],
+["The person I can't put a name to","Named case manager plus a named backup","j0","s","w2","\"Your manager is on leave\" must never mean \"nobody knows your mother\""],
+["The complaint I can't take anywhere","Published escalation path and SLA, routed past the local agent to the Canadian entity","j0","s","w2",""],
+["The risk I can't carry myself","Bonding and professional liability cover","j0","x","w3","Where obtainable"]
+];
+const ORDER=["j1","j2","j3","j4","j5","j6","j7","j8","j9"];
+const JORD=[...ORDER,"j0"], CORD={g:0,s:1,x:2};
+const sortRows=a=>a.slice().sort((p,q)=>JORD.indexOf(p[2])-JORD.indexOf(q[2])||CORD[p[3]]-CORD[q[3]]);
+const TIERS=[
+ {id:"voice",n:"Voice",p:19,sub:"for the weeks I can't call",g:3,s:0,x:"quoted",visits:0,calls:4,hrs:2,hrsE:1.1,cost:3.3,
+  purpose:"Converts a sceptic at a price low enough to be an impulse. Three errands a month is enough to be genuinely useful — which is the point, and also why this tier barely contributes. Cap it at three months before an upgrade conversation."},
+ {id:"visit",n:"Visit",p:45,sub:"for the month I can't get there",g:6,s:1,x:"per use",visits:1,calls:4,hrs:8.5,hrsE:4.7,cost:14,
+  purpose:"The expected majority tier when the parent is broadly well. What the extra $26 buys: the first in-person visit, a named manager instead of a shared pool, a monthly report instead of quarterly, a three-hour emergency target instead of best effort, twice the errands and the first semi-special request."},
+ {id:"watch",n:"Watch",p:95,sub:"for the decline I can't see coming",g:12,s:3,x:1,visits:2,calls:8,hrs:22,hrsE:12.1,cost:36,best:true,
+  purpose:"Chronic condition or living alone. Everything doubles again — twelve errands, three semi-specials, a fortnightly visit rhythm, a backup manager, rollover, and a special event inside the tier rather than quoted. This is where the business makes money."},
+ {id:"vigil",n:"Vigil",p:175,sub:"for the day I can't leave unwatched",g:24,s:6,x:3,visits:4,calls:30,hrs:47,hrsE:25.9,cost:78,
+  purpose:"Frail or solo parent, or property and admin as well. Daily contact, a weekly visit, twenty-four errands, a dedicated manager, one property door included and 20% off travel work. Capped at 15% of the book because four of these occupy a manager entirely."}
+];
+</script>
+<script>
+const $ = id => document.getElementById(id);
+
+/* nav + progress */
+$("nav").innerHTML = SECTIONS.map(([id,l])=>`<a href="#${id}" data-t="${id}">${l}</a>`).join("");
+const onScroll = () => {
+  const h = document.documentElement;
+  $("prog").style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+  let cur = SECTIONS[0][0];
+  SECTIONS.forEach(([id])=>{ const el=$(id); if(el && el.getBoundingClientRect().top < 120) cur=id; });
+  document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("here", a.dataset.t===cur));
+};
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+/* reveal + animated bars */
+const reveal = el => {
+  el.classList.add("in");
+  el.querySelectorAll("[data-w]").forEach(x=>{ x.style.width = x.dataset.w; });
+  el.querySelectorAll("[data-flex]").forEach(x=>{ x.style.flexGrow = x.dataset.flex; });
+};
+const io = ("IntersectionObserver" in window) ? new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return; reveal(e.target); io.unobserve(e.target);
+}),{threshold:.12}) : null;
+const watch = el => { if(!el) return; io ? io.observe(el) : reveal(el); };
+document.querySelectorAll(".fadein").forEach(watch);
+
+/* ---------- 04 market ---------- */
+const MKT=[["Iranians living outside Iran","6–10 million","Estimates diverge badly: official registration data suggests around 4 million, community and academic estimates run to 10. Take 8 million as a working midpoint and treat the spread as a warning, not a detail.",100],
+ ["In high-income countries","~5.5 million","Europe, North America and Australia — roughly 70%, with hard currency and no physical presence in Iran.",69],
+ ["With a parent 65+ still in Iran","1.0–1.6 million households","The 15–20% assumption applied to the above. Unvalidated, and still the most load-bearing number in this plan.",16],
+ ["Anything at all left behind in Iran","~4 million households","A parent, a flat, a pension, a deed, a grave, an unfinished file. This is the real denominator for the catalogue as it now stands.",50],
+ ["Iranian-Canadian households in the GTA and Vancouver","~60,000","The pilot's realistic addressable pool, and enough to reach every target in this plan without leaving Canada.",0.9],
+ ["Year-three target book","300 families + 300 doors","Roughly 0.02% of the households with a parent in Iran. This plan is constrained by operating capacity, not by demand.",0.02]];
+$("mkt").innerHTML = `<div class="chart">
+  <h4>From five million people to three hundred paying accounts</h4>
+  <div class="cap">Square-root scale, so the small numbers stay visible. Order-of-magnitude figures from public reporting, not commissioned research.</div>
+  ${MKT.map((m,i)=>`<div class="hbar"><div class="t">${m[0]}</div>
+    <div class="b ${i>2?"warm":i===2?"alt":""}" data-w="${Math.max(6,Math.sqrt(m[3])*10)}%">${m[1]}</div></div>
+    <div class="cap" style="margin:-4px 0 12px 0;padding-left:0">${m[2]}</div>`).join("")}
+</div>`;
+watch($("mkt").firstElementChild);
+
+/* ---------- 06 job board ---------- */
+const byJob={}; D.forEach(r=>{ (byJob[r[2]]=byJob[r[2]]||{g:0,s:0,x:0,n:0}); byJob[r[2]][r[3]]++; byJob[r[2]].n++; });
+const firstWave = j => { const w=D.filter(r=>r[2]===j).map(r=>r[4]);
+  return ["w1","w2","w3","w4"].find(k=>w.includes(k)); };
+const maxN = Math.max(...ORDER.map(j=>byJob[j].n));
+$("board").innerHTML = ORDER.map(j=>{
+  const b=byJob[j];
+  const seg=(k,c)=> b[k] ? `<i class="${c}" data-flex="${b[k]}" style="flex-grow:0">${b[k]}</i>` : "";
+  return `<button class="jrow" data-j="${j}" aria-expanded="false">
+   <span class="jn">${JOBS[j][0]}<span>${JOBS[j][1]}</span></span>
+   <span class="jbar" style="width:${(b.n/maxN)*100}%" role="img" aria-label="${b.g} general, ${b.s} semi-special, ${b.x} special">${seg("g","gg")}${seg("s","ss")}${seg("x","xx")}</span>
+   <span class="jc"><b>${b.n} services</b>${WAVES[firstWave(j)][0]}</span></button>`;
+}).join("");
+watch($("board"));
+const tot={g:0,s:0,x:0}; D.filter(r=>r[2]!=="j0").forEach(r=>tot[r[3]]++);
+$("boardTotals").textContent = `${D.length-9} person- and asset-bound services, plus the nine-service platform layer below. Across them: ${tot.g} general, ${tot.s} semi-special, ${tot.x} special.`;
+$("nG").textContent = tot.g; $("nS").textContent = tot.s; $("nX").textContent = tot.x;
+
+let openJob=null;
+$("board").addEventListener("click", e=>{
+  const b=e.target.closest(".jrow"); if(!b) return;
+  const j=b.dataset.j;
+  document.querySelectorAll(".jrow").forEach(r=>r.setAttribute("aria-expanded", r===b && openJob!==j));
+  if(openJob===j){ openJob=null; $("jobDetail").innerHTML=""; return; }
+  openJob=j;
+  const rows=sortRows(D.filter(r=>r[2]===j));
+  $("jobDetail").innerHTML=`<div class="detail"><h4>${JOBS[j][0]}</h4>
+    <p>${JOBS[j][2]}</p>
+    <ul>${rows.map(r=>`<li><span class="tag ${r[3]}">${CLS[r[3]][0]}</span> <b class="pat">${r[0]}</b><br><span class="small">${r[1]}</span></li>`).join("")}</ul></div>`;
+  $("jobDetail").scrollIntoView({block:"nearest",behavior:REDUCED?"auto":"smooth"});
+});
+$("platGrid").innerHTML = D.filter(r=>r[2]==="j0").map(r=>
+  `<div class="card t-l"><h4 class="pat">${r[0]}</h4><p class="small">${r[1]}${r[5]?" — "+r[5]:""}</p></div>`).join("");
+
+/* ---------- 07 request flow ---------- */
+const STEPS=[["Request","dashboard, WhatsApp or the manager"],["Triaged","class assigned, quota checked"],
+["Scheduled","batched by area and day"],["Delivered","protocol followed, evidence captured"],
+["Reported","bilingual, photos, receipts"],["Invoiced","quota drawn or overage billed"]];
+$("flowsteps").innerHTML = STEPS.map((s,i)=>{
+  const x=8+i*158;
+  return `${i?`<path class="cn" d="M${x-14} 95 L${x-2} 95"/>`:""}
+   <rect class="st" x="${x}" y="58" width="144" height="74" rx="3"></rect>
+   <text class="sl" x="${x+16}" y="88">${s[0]}</text>
+   <text class="ss" x="${x+16}" y="108">${s[1].slice(0,26)}</text>
+   <text class="ss" x="${x+16}" y="122">${s[1].slice(26)}</text>`;
+}).join("");
+
+/* ---------- 08 tiers + matrix + a la carte ---------- */
+$("tierGrid").innerHTML = TIERS.map(t=>`<div class="tier${t.best?" best":""}">
+  <div class="hd">${t.best?'<div class="badge">Where the business earns</div>':""}
+    <div class="nm">${t.n}</div><div class="pr">$${t.p}<small>/mo</small></div>
+    <div class="sub">${t.sub}</div></div>
+  <dl>
+    <div><dt>Emergency target</dt><dd>${["best effort","≤3 hrs","≤90 min","≤60 min"][TIERS.indexOf(t)]}</dd></div>
+    <div><dt>Check-in calls</dt><dd>${t.calls}/mo</dd></div>
+    <div><dt>In-person visits</dt><dd>${t.visits||"—"}</dd></div>
+    <div><dt>General requests</dt><dd>${t.g}/mo</dd></div>
+    <div><dt>Semi-special</dt><dd>${t.s||"—"}</dd></div>
+    <div><dt>Special events</dt><dd>${t.x}</dd></div>
+    <div><dt>Written report</dt><dd>${["quarterly","monthly","monthly +","fortnightly"][TIERS.indexOf(t)]}</dd></div>
+    <div><dt>Case manager</dt><dd>${["shared","named","named + backup","dedicated"][TIERS.indexOf(t)]}</dd></div>
+    <div><dt>Rollover</dt><dd>${["none","none","1 month","2 months"][TIERS.indexOf(t)]}</dd></div>
+  </dl>
+  <div class="ft">${t.purpose}</div></div>`).join("");
+
+const MX=[["Always-on base, never metered","head"],
+ ["24/7 emergency line","✓","✓","✓","✓"],["Named on-call responder","—","✓","✓","✓"],
+ ["Emergency file maintained","✓","✓","✓","✓"],["Dashboard and activity log","✓","✓","✓","✓"],
+ ["Document vault","read only","✓","✓","✓"],["Bilingual reporting","✓","✓","✓","✓"],
+ ["Sibling billing split","—","2 payers","4 payers","4 payers"],
+ ["Metered quotas","head"],
+ ["General requests / month","3","6","12","24"],["Semi-special / month","—","1","3","6"],
+ ["Special events / month","quoted","pay per use","1","3"],["Unused quota rollover","—","—","1 month","2 months"],
+ ["Overage per request","head"],
+ ["Extra general request","$14","$12","$10","$8"],["Extra semi-special","$40","$35","$30","$25"],
+ ["Extra in-person visit","$28","$25","$22","$18"],["Special event","from $75","from $70","from $60","from $50"],
+ ["Category access","head"],
+ ["Calls I can't make · Appointments I can't attend","partial","✓","✓","✓"],
+ ["Nights I can't be there","✓","✓","✓","✓"],
+ ["Goodbyes I can't say","—","quoted","quoted","✓"],
+ ["Queues · Gifts · household · youth","via quota","via quota","via quota","via quota"],
+ ["Doors I can't check","module","module","module","1 door included"],
+ ["Papers I can't sign","—","quoted","quoted","quoted"],
+ ["Homecomings I can't prepare","module","module","10% off","20% off"]];
+$("matrix").innerHTML = `<thead><tr><th></th>${TIERS.map(t=>`<th>${t.n}<br><span class="small">$${t.p}</span></th>`).join("")}</tr></thead><tbody>`
+ + MX.map(r=> r[1]==="head"
+   ? `<tr><th colspan="5" style="background:var(--sunk);color:var(--ink);font-size:13px">${r[0]}</th></tr>`
+   : `<tr><td>${r[0]}</td>${r.slice(1).map(c=>`<td>${c}</td>`).join("")}</tr>`).join("") + `</tbody>`;
+
+const MODULES=[
+ ["Doors I can't check","Watch a door","$39 / door / month","Monthly inspection with photo report, ventilation, leak and pest check, utility continuity, mail cleared, building charges paid."],
+ ["Doors I can't check","Run a door","$65 / door / month, or 8% of collected rent, whichever is greater","Everything in Watch a door, plus rent collection and monthly statement, tenant relations, repair coordination and association representation."],
+ ["Doors I can't check","Walk the land","$25 / parcel / quarter","Boundary and encroachment check, seasonal condition report, GPS-stamped photographs. The commonest inherited asset and almost never monitored."],
+ ["Doors I can't check","Move the money","not priced","Cross-border rent remittance, deliberately excluded until counsel resolves it. Rent is collected and held to the owner's local instruction."],
+ ["Queues I can't stand in","Watch the pension","$15 / month","Monthly confirmation that the pension or benefit has actually arrived, with the fund chased when it has not, and a note in the log either way."],
+ ["Queues I can't stand in","Keep the car legal","$19 / month","Insurance renewal, technical inspection, fines cleared, plate and ownership paperwork kept current. Fees at cost."],
+ ["Proof I can't get","The vault alone","$9 / month","Document vault, bilingual index and the activity log with no service quota attached. An acquisition product for someone not ready to buy anything else."],
+ ["Goodbyes I can't say","Keep the grave","$15 / month, or $120 / year","Seasonal visit, cleaning, flowers, photo report. Retains an account whose original reason has ended."],
+ ["Papers I can't sign","A matter, opened","partner fee at cost + 20%","Notarial, registry, court or estate work. Quoted per matter before anything starts, because partner costs dominate and vary too widely to average."]];
+const ONEOFF=[
+ ["Calls I can't make","A welfare visit with a report","S","$45","The natural trial purchase for a sceptical buyer."],
+ ["Calls I can't make","A multi-task visit, up to four tasks","S","$55","One attended trip, one report. The batching discount made explicit."],
+ ["Calls I can't make","Agent time, by the hour","G","$28 / hr, 2 hr minimum","Open time the family directs on the day. Easiest thing to sell to someone who does not yet know what they want done."],
+ ["Calls I can't make","A companionship visit","G","$30","An accompanied walk, tea, a trip to the bazaar. Sold as social contact, not care."],
+ ["Calls I can't make","A home safety audit","S","$65","Fall hazards, bathroom, lighting, stairs, gas and water heaters, with a written findings list."],
+ ["Appointments I can't attend","A doctor's appointment, escorted and summarised","S","$60","Booking, accompaniment, notes, and the bilingual write-up. Strong standalone product."],
+ ["Appointments I can't attend","A pharmacy run with the week's organiser","G","$30","Refill collected, organiser filled and photographed."],
+ ["Appointments I can't attend","Lab or imaging logistics","S","$50","Booking, fasting instructions, transport, results collected and uploaded."],
+ ["Appointments I can't attend","Medical records digitised and translated","S","$70 + $2/page over 20","Paper files scanned, indexed and rendered into English for the child's own physician."],
+ ["Appointments I can't attend","A second opinion packaged","S","$90","Records assembled and sent to a doctor abroad, response relayed and explained."],
+ ["Appointments I can't attend","Equipment sourced and installed","S","$45 + cost","Walker, wheelchair, bed, oxygen concentrator, monitor. Delivered, installed, demonstrated."],
+ ["Appointments I can't attend","A doctor, a nurse or an attendant at home","X","quoted","Partner-delivered. Fee at cost plus a 20% coordination charge, disclosed before booking."],
+ ["Nights I can't be there","An emergency file prepared","X","$40","Blood type, allergies, medications, treating physician, next of kin, signed consents. Worth buying before anything happens."],
+ ["Goodbyes I can't say","A grave visit with photo report","G","$40","Cleaning, flowers, photographs. Sold singly or as a standing module."],
+ ["Goodbyes I can't say","Emergency travel logistics for the child","S","$95","Flight, visa position, documents and arrival handling, organised while the customer is in no state to organise anything."],
+ ["Goodbyes I can't say","Funeral and memorial coordination","X","quoted","Venue, announcements, catering, clergy, live stream. Build it properly or refuse the job."],
+ ["Doors I can't check","A property inspection, once","S","$75","Full walkthrough, checklist, date-stamped media. The entry point into the property funnel."],
+ ["Doors I can't check","Tenant placement","S","50% of one month's rent","Listing, viewings on the owner's behalf, vetting, shortlist with a recommendation, lease registered via partner."],
+ ["Doors I can't check","Renovation supervision","X","8% of project value, min $250","Scope, two-quote minimum, milestone photo reporting, staged payment release, handover."],
+ ["Doors I can't check","Urgent trade dispatch","X","from $60 + trade cost","Same-day plumber, electrician, boiler or locksmith against an authorised spend cap."],
+ ["Queues I can't stand in","A bill paid or a single errand","G","$20","The cheapest possible first transaction with a stranger."],
+ ["Queues I can't stand in","A document renewed or an office queued at","G","$35 + official fees","Passport, national card, licence, certificate. Fees at cost with the receipt."],
+ ["Queues I can't stand in","An accompanied appearance","S","$50","Where the elder must attend in person: biometrics, signatures, bank or notarial appearances."],
+ ["Queues I can't stand in","Certified translation, legalised and couriered","S","$70 + fees","Demand exists entirely independently of elder care. Worth its own landing page."],
+ ["Queues I can't stand in","Portal and online form assistance","G","$25","Forms completed, uploads, appointments, payments on instruction. Credentials never retained."],
+ ["Gifts I can't hand over","Flowers, cake or a gift delivered","G","cost + 25%, min $18","Photographed with the recipient. This is the referral engine."],
+ ["Gifts I can't hand over","Charity executed and evidenced","G","cost + 20%, min $20","Nazr or sadaqeh carried out with photograph and receipt."],
+ ["Gifts I can't hand over","The Nowruz package","G","$85","Spring clean, haft-sin set up and photographed, sabzeh, eidi to a named list, video message. Sold February to March."],
+ ["Gifts I can't hand over","Yalda or Ramadan observance","G","$55","Seasonal provision, photographed. Keeps an account warm between real needs."],
+ ["Gifts I can't hand over","A technology setup visit","G","$35","Phone, tablet, smart TV, router, video calling configured and tested."],
+ ["Gifts I can't hand over","Three digital lessons","G","$60","Short repeated sessions on the phone, video calling and scam awareness. The repetition is the product."],
+ ["Gifts I can't hand over","An item dropped at the repair shop and collected","G","$25","Appliances, phones, spectacles, watches, shoes, with receipt and photograph."],
+ ["Homecomings I can't prepare","The arrival pack","S","$120 per trip","House prepared before landing, airport reception, SIM live on arrival, driver for day one. 10% off on Watch, 20% off on Vigil."],
+ ["Homecomings I can't prepare","Post-departure closing","S","$60","Utilities down, perishables cleared, property secured and handed to standing vacant care."],
+ ["Homecomings I can't prepare","Airport or terminal escort for the parent","S","$55","Check-in, wheelchair, escort to gate, met on arrival."],
+ ["Homecomings I can't prepare","Canada visa support for the parent","S","$90","Invitation documents, biometrics appointment, translated financial evidence, application reviewed."],
+ ["Papers I can't sign","A civil certificate obtained","S","$55 + fees","Marriage, divorce, birth or death certificate, with legalisation for use abroad."],
+ ["Papers I can't sign","A consultation with a lawyer or accountant","X","$90 + partner fee","Persian-speaking professional, scheduled and minuted for the family abroad. The product for a family that needs an answer before it needs a matter opened."],
+ ["Papers I can't sign","Power of attorney, drafted and authenticated","X","quoted","Via notary partner, with consular guidance in Canada and scope limitation advice."]];
+$("modules").innerHTML = `<thead><tr><th>Category</th><th>Module</th><th>Price</th><th>What it covers</th></tr></thead><tbody>`
+ + MODULES.map(m=>`<tr><td class="small pat">${m[0]}</td><td><b>${m[1]}</b></td><td><b>${m[2]}</b></td><td class="small">${m[3]}</td></tr>`).join("") + `</tbody>`;
+let ooCat="all";
+function drawOneoff(){
+  const rows = ONEOFF.filter(r=>ooCat==="all"||r[0]===ooCat);
+  let last="";
+  $("oneoff").innerHTML = `<thead><tr><th>Job</th><th>Class</th><th>Price</th></tr></thead><tbody>` + rows.map(r=>{
+    const head = (ooCat==="all" && r[0]!==last) ? `<tr><th colspan="3" style="background:var(--sunk);color:var(--ink);font-size:13px" class="pat">${r[0]}</th></tr>` : "";
+    last=r[0];
+    return head + `<tr><td><b>${r[1]}</b><br><span class="small">${r[4]}</span></td><td><span class="tag ${r[2].toLowerCase()}">${r[2]}</span></td><td><b>${r[3]}</b></td></tr>`;
+  }).join("") + `</tbody>`;
+}
+const ooCats = [...new Set(ONEOFF.map(r=>r[0]))];
+$("ooFilter").innerHTML = [["all","All "+ONEOFF.length+" jobs"],...ooCats.map(c=>[c,c])]
+  .map(([v,l])=>`<button class="f" data-v="${v}" aria-pressed="${v==="all"}">${l}</button>`).join("");
+$("ooFilter").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  ooCat=b.dataset.v;[...$("ooFilter").querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",x===b));drawOneoff();});
+drawOneoff();
+
+/* ---------- 09 configurator ---------- */
+const DEF={tier:"watch",second:false,city:false,doors:0,doorType:"run",siblings:1,prepay:false,arrival:false,nowruz:false,grave:false};
+let state={...DEF};
+const HOURLY=3;
+const money=n=>"$"+Math.round(n).toLocaleString();
+const TINFO={
+ voice:["4 check-in calls a month","3 errands","no in-person visit","manager from a shared pool","emergency line, best effort"],
+ visit:["1 in-person visit a month","4 check-in calls","6 errands","1 manager task","your own named manager","emergency within 3 hours"],
+ watch:["2 in-person visits a month","8 check-in calls","12 errands","3 manager tasks","1 special event included","named manager + backup","emergency within 90 minutes"],
+ vigil:["4 in-person visits a month","daily check-in calls","24 errands","6 manager tasks","3 special events included","dedicated manager","emergency within 60 minutes","one property door included"]};
+const PRESETS=[["Parent is broadly well",{tier:"visit"}],["Chronic condition or living alone",{tier:"watch"}],
+ ["Frail, or no family nearby",{tier:"vigil"}],["Property and paperwork only",{tier:"none",doors:1,doorType:"run"}]];
+function calc(){
+  const t=state.tier==="none"?null:TIERS.find(x=>x.id===state.tier);
+  const tierPrice=t?t.p*(state.second?1.4:1):0;
+  const cityPrice=(t&&state.city)?25:0;
+  const doorRate=state.doorType==="run"?65:39;
+  const doorsBilled=Math.max(0,state.doors-(state.tier==="vigil"?1:0));
+  const doorsPrice=doorsBilled*doorRate;
+  const gravePrice=state.grave?15:0;
+  const monthly=tierPrice+cityPrice+doorsPrice+gravePrice;
+  const hrs=(t?t.hrsE*(state.second?1.5:1):0)+state.doors*(state.doorType==="run"?3:1.5)+(cityPrice?1:0)+(state.grave?0.5:0);
+  const cost=hrs*HOURLY;
+  const disc=state.tier==="vigil"?.8:state.tier==="watch"?.9:1;
+  const arrival=state.arrival?120*disc:0, nowruz=state.nowruz?85:0;
+  return {t,tierPrice,cityPrice,doorRate,doorsBilled,doorsPrice,gravePrice,monthly,
+    perPayer:monthly/state.siblings,annual:state.prepay?monthly*10:monthly*12,saving:monthly*2,
+    hrs,cost,gm:monthly?(monthly-cost)/monthly*100:0,arrival,nowruz,oneoff:arrival+nowruz,disc};
+}
+const addrow=(k,title,sub,price,on)=>`<button class="addrow" data-k="${k}" aria-pressed="${on}">
+  <span class="box">${on?"\u2713":""}</span><span class="tx"><b>${title}</b><span>${sub}</span></span>
+  <span class="pz">${price}</span></button>`;
+function cfgRender(){
+  const c=calc();
+  $("cfg").innerHTML=`<div class="bld"><div>
+   <div class="presets">${PRESETS.map((pr,i)=>`<button data-preset="${i}">${pr[0]}</button>`).join("")}</div>
+
+   <div class="step"><h4><span class="n">1</span><span class="q">What does the family need every month?</span></h4>
+     <div class="hint">Every tier includes the 24/7 emergency line, the dashboard, the document vault and bilingual reporting. Change or cancel any month.</div>
+     <div class="tcards">
+      ${TIERS.map(t=>`<button class="tcard" data-k="tier" data-v="${t.id}" aria-pressed="${state.tier===t.id}">
+        <span class="tn">${t.n}<i>$${t.p}/mo</i></span>
+        <ul>${TINFO[t.id].map(x=>`<li>${x}</li>`).join("")}</ul></button>`).join("")}
+      <button class="tcard" data-k="tier" data-v="none" aria-pressed="${state.tier==="none"}">
+        <span class="tn">No subscription<i>$0</i></span>
+        <ul><li>Property and paperwork modules only</li><li>One-off jobs at menu price</li><li>No quota, no emergency cover</li></ul></button>
+     </div></div>
+
+   <div class="step"${state.tier==="none"?' style="opacity:.45"':''}><h4><span class="n">2</span><span class="q">Who and where?</span></h4>
+     <div class="hint">${state.tier==="none"?"Choose a subscription above to add people to it.":"Add anyone else the same manager will look after."}</div>
+     ${state.tier==="none"?"":
+       addrow("second","A second parent at the same address","One visit, one journey, one manager relationship — so it adds 40%, not 100%","+"+money(c.t.p*0.4),state.second)+
+       addrow("city","A second household or another city","Covers the travel and the lost route batching","+$25",state.city)}
+   </div>
+
+   <div class="step"><h4><span class="n">3</span><span class="q">Is there property to look after?</span></h4>
+     <div class="hint">Priced per door, because an owner with three flats costs three times as much to serve.${state.tier==="vigil"?" Vigil includes the first door free.":""}</div>
+     <div class="stepper">
+       <button data-k="doors" data-v="${Math.max(0,state.doors-1)}" aria-label="fewer doors">&minus;</button>
+       <span class="val">${state.doors}</span>
+       <button data-k="doors" data-v="${Math.min(8,state.doors+1)}" aria-label="more doors">+</button>
+       <span class="small">${state.doors===0?"no property":state.doors===1?"one door":state.doors+" doors"}${c.doorsBilled<state.doors?" · first one included":""}</span></div>
+     ${state.doors>0?`<div class="tcards" style="margin-top:14px">
+       <button class="tcard" data-k="doorType" data-v="watch" aria-pressed="${state.doorType==="watch"}">
+         <span class="tn">Empty<i>$39 each</i></span><ul><li>Monthly inspection with photos</li><li>Ventilation, leaks, pests, mail</li><li>Utilities and building charges paid</li></ul></button>
+       <button class="tcard" data-k="doorType" data-v="run" aria-pressed="${state.doorType==="run"}">
+         <span class="tn">Tenanted<i>$65 each</i></span><ul><li>Everything for an empty flat</li><li>Rent collected, statement sent</li><li>Tenant relations and repairs</li></ul></button></div>`:""}
+     ${addrow("grave","A grave to keep","Seasonal visit, cleaning, flowers, photo report","+$15",state.grave)}
+   </div>
+
+   <div class="step"><h4><span class="n">4</span><span class="q">How is it paid?</span></h4>
+     <div class="hint">Siblings can each be billed their own share separately.</div>
+     <div class="pill">${[1,2,3,4].map(n=>`<button data-k="siblings" data-v="${n}" aria-pressed="${state.siblings===n}">${n} payer${n>1?"s":""}</button>`).join("")}</div>
+     <div style="margin-top:12px">${addrow("prepay","Pay for the year up front","Ten months for twelve — and eleven fewer chances for a card to fail","save "+money(c.saving),state.prepay)}</div>
+   </div>
+
+   <div class="step"><h4><span class="n">5</span><span class="q">Anything one-off?</span></h4>
+     <div class="hint">Billed once, when used. These never appear on the monthly total.</div>
+     ${addrow("arrival","Arrival pack, for a trip home","House prepared, airport reception, SIM live on landing, driver for day one",money(120*c.disc)+(c.disc<1?" · "+Math.round((1-c.disc)*100)+"% off":""),state.arrival)}
+     ${addrow("nowruz","Nowruz package","Spring clean, haft-sin photographed, sabzeh, eidi to a named list","$85",state.nowruz)}
+   </div>
+  </div>
+  <div class="quote" id="out"></div></div>`;
+  outRender();
+}
+function outRender(){
+  const c=calc(), t=c.t;
+  const buys=t?TINFO[t.id].slice(0,5):[];
+  const li=(a,b)=>`<div class="li"><span>${a}</span><b>${b}</b></div>`;
+  $("out").innerHTML=`
+   <div class="qh">
+     <div class="lbl">Every month</div>
+     <div class="big">${money(c.monthly)}</div>
+     <div class="per">${state.siblings>1?`${money(c.perPayer)} each, across ${state.siblings} payers`:"single payer"}</div>
+   </div>
+   <div class="qb">
+     ${c.monthly===0?`<div class="empty">Nothing recurring yet. Pick a subscription, add a door, or buy a one-off job below.</div>`:""}
+     ${t?li(`${t.n}${state.second?", two parents":""}`,money(c.tierPrice)):""}
+     ${c.cityPrice?li("Second household or city",money(c.cityPrice)):""}
+     ${c.doorsPrice?li(`${c.doorsBilled} × ${state.doorType==="run"?"tenanted":"empty"} flat at $${c.doorRate}`,money(c.doorsPrice)):""}
+     ${c.gravePrice?li("Grave kept",money(c.gravePrice)):""}
+     ${c.monthly?li(state.prepay?"Year, prepaid":"Year, billed monthly",money(c.annual)):""}
+     ${buys.length?`<div class="sect">What that buys</div><div class="buys">${buys.map(b=>`<span>${b}</span>`).join("")}</div>`:""}
+     ${c.oneoff?`<div class="sect">One-off, billed when used</div>
+       ${c.arrival?li("Arrival pack",money(c.arrival)):""}${c.nowruz?li("Nowruz package",money(c.nowruz)):""}
+       ${li("<b>One-off total</b>",money(c.oneoff))}`:""}
+     <details><summary>Show the internal economics</summary>
+       ${li("Agent hours a month at 55% use",c.hrs.toFixed(1)+" hrs")}
+       ${li("Cost to serve at $3/hr",money(c.cost))}
+       ${li("Gross margin before Canada overhead",c.monthly?c.gm.toFixed(0)+"%":"—")}
+       ${li("Accounts one manager could carry",c.hrs?Math.max(1,Math.floor(120/c.hrs)):"—")}
+     </details>
+     <button class="rs" data-k="reset">Start again</button>
+   </div>`;
+}
+cfgRender();
+$("cfg").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.preset!==undefined){ state={...DEF,...PRESETS[+b.dataset.preset][1]}; cfgRender(); return; }
+  const k=b.dataset.k; if(!k) return;
+  const v=b.dataset.v;
+  if(k==="reset") state={...DEF};
+  else if(v===undefined) state[k]=!state[k];
+  else state[k]=isNaN(Number(v))?v:Number(v);
+  cfgRender();
+});
+
+/* ---------- 10 channels + assets infographics ---------- */
+const CH=[
+ [1,"Professional referral partners",5,2,"2–4 weeks","3–8 families a month",
+  "Diaspora-serving accountants, immigration lawyers, Persian-speaking realtors and notaries in Toronto and Vancouver. They already know which clients own property in Iran or have a parent there — it is in the file in front of them. Give them the sample report and a referral fee, or a reciprocal arrangement."],
+ [2,"Personal network and word of mouth",5,1,"immediate","2–5 families, then it thins",
+  "The right place to start the pilot and the wrong place to build a strategy. It does not scale and it burns social capital if the first delivery is rough, which is precisely why the pilot should be small."],
+ [3,"Community Telegram and Instagram groups",3,1,"1–3 months","2–6 families a month",
+  "Toronto, Vancouver, Los Angeles, London. Contribute answers for weeks before posting anything commercial; a cold promotional post is usually removed or ignored, and being seen to be removed costs more than the post was worth."],
+ [4,"Persian-language YouTube and podcasts",4,3,"1–2 months","5–15 families per placement",
+  "Sponsorship or a guest appearance on diaspora-focused shows. Long-form audio suits a trust-heavy purchase far better than any display format: forty minutes of someone explaining the problem does work no advertisement can."],
+ [5,"Cultural and community organisations",4,2,"3–6 months","slow, compounding",
+  "Iranian-Canadian associations, seniors' groups, cultural centres, festivals. Relationship-led and genuinely slow, and it produces the credibility that every other channel then borrows."],
+ [6,"Physical diaspora businesses",3,1,"2–6 weeks","1–4 families a month",
+  "Persian grocers, pharmacies, travel agencies on Iran routes. A card next to the till is almost free, and travel agencies hold a list of people who fly to Iran specifically to handle the problems you solve."],
+ [7,"Paid search and social",2,4,"days","unbounded, at a price",
+  "Last for care, first for paperwork. See the note below — the split matters more than the ranking."]];
+const meter=(v,max,cls)=>`<span style="display:inline-flex;gap:2px;vertical-align:middle">${Array.from({length:max},(_,i)=>
+ `<span style="width:12px;height:7px;border-radius:1px;background:${i<v?`var(--${cls})`:"var(--rule)"}"></span>`).join("")}</span>`;
+$("channels").innerHTML=CH.map(c=>`<div class="card ${c[0]<=2?"t-g":c[0]===7?"t-x":"t-l"}">
+  <h4 style="display:flex;gap:10px;align-items:baseline"><span style="font-family:Spectral,serif;font-size:22px;color:var(--lapis)">${c[0]}</span>${c[1]}</h4>
+  <div class="small" style="display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:10px 0 12px">
+    <span>Buyer intent</span><span>${meter(c[2],5,"turq")}</span>
+    <span>Cost to work</span><span>${meter(c[3],5,"madder")}</span>
+    <span>Time to first customer</span><b>${c[4]}</b>
+    <span>Realistic output</span><b>${c[5]}</b></div>
+  <p class="small" style="margin:0">${c[6]}</p></div>`).join("");
+
+const ASSETS=[
+ ["Build first — before the website copy","t-l",[
+  ["The anonymised sample monthly report","A real-looking month for a fictional family: timestamped visit notes, photographs, a doctor summary in both languages, itemised receipts, the safety-audit findings.","~6 hrs, no cash","“How do I know you won't steal from my mother?” and “what do I actually get?”","Immediately. It is the landing page, the sales deck and the referral-partner handout."],
+  ["A one-page service and price sheet","The four tiers, the modules, and six one-off jobs with prices. Printed, because half the referral partners will hand it over physically.","~3 hrs, $50 printing","“What does this cost?” asked before trust exists, which otherwise derails the whole call.","First week of selling."],
+  ["The assessment call script","Twenty structured questions about the parent's situation that end in a tier recommendation the customer reaches themselves.","~4 hrs","“I'm not sure what I need.” It also doubles as the field research the validation phase requires.","First ten calls."],
+  ["The parent-acceptance script, in Persian","How the named manager introduces themselves to an elderly parent who did not ask for this and may resent it. The single most delicate conversation in the business.","~4 hrs","“My father would never accept a stranger,” and the 60-day churn behind it.","First five accounts — it decides whether they survive."]]],
+ ["Build second — once five families are live","t-s",[
+  ["Three anonymised case vignettes","A fall and what happened in the next six hours. A tenant who stopped paying. A pension that had quietly stopped arriving. Two hundred words each, outcomes stated plainly.","~5 hrs","“Has this actually worked for anyone?” Specificity is what converts; adjectives are not.","Month three, when you have real material."],
+  ["The sanctions and payment FAQ, counsel-reviewed","Plain language, accurate, published. Why a Canadian customer paying a Canadian company in Canadian dollars for a service sits differently from prohibited trade.","~2 hrs + counsel","“Isn't this illegal?” — which loses sales silently, because people do not ask, they just leave.","Before any paid advertising."],
+  ["The agent vetting and bonding one-pager","How care managers are found, checked, trained and supervised. The two-agent rule. What happens when something goes missing.","~3 hrs","The theft objection in its second, more specific form: “who is this person?”","When referral partners start asking, and they will."],
+  ["The referral-partner pack","A short explainer, ten price sheets, the sample report, and the fee or reciprocal arrangement in writing.","~4 hrs, $80 printing","Nothing — it removes work. A partner will not explain your business for you, so hand them something that does.","Month two. This is the highest-intent channel you have."]]],
+ ["Build later — once the model has stopped moving","t-g",[
+  ["A dashboard demo environment","A populated account a prospect can click through on the call. Replaces every abstract description of the platform layer.","~20 hrs or a developer","“I don't understand what I'm buying.” Also the answer for the second-generation child who wants to see the software.","Once the dashboard itself is real rather than a spreadsheet."],
+  ["Video testimonials, child and parent separately","Ninety seconds each. The parent's testimonial does more work than the child's, and almost nobody in this category has one.","~8 hrs, $300 editing","Every objection at once, from someone who is not you.","Month six at the earliest, and only with explicit consent from both."],
+  ["Per-city landing pages","Toronto, Vancouver, then Los Angeles and London. The same promise, the local proof, local phone number.","~10 hrs","“Is this for people like me?” — and it is what makes paid search economic.","When paid channels switch on."],
+  ["A property-owner funnel of its own","Separate page, separate language, no mention of elder care. An absentee owner is not shopping for a care service and bounces off one.","~8 hrs","The mismatch that loses the highest-margin customer in the catalogue.","Phase 3, alongside the door module."]]]];
+$("assets").innerHTML = ASSETS.map(([wave,cls,items])=>`
+ <h4 style="margin-top:24px">${wave}</h4>
+ <div class="grid2">${items.map(a=>`<div class="card ${cls}">
+   <h4>${a[0]}</h4><p class="small">${a[1]}</p>
+   <div class="small" style="display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:10px;color:var(--ink2)">
+     <span>Cost</span><b style="color:var(--ink)">${a[2]}</b>
+     <span>Kills</span><b style="color:var(--ink)">${a[3]}</b>
+     <span>Needed by</span><b style="color:var(--ink)">${a[4]}</b></div></div>`).join("")}</div>`).join("");
+
+/* ---------- 11 charts ---------- */
+const MARG=[["Arrival pack",87,"alt"],["Run a door",86,"alt"],["Voice",83,""],["Visit",69,"warm"],["Watch",62,""],["Vigil",56,"deep"]];
+$("marginChart").innerHTML=`<div class="chart"><h4>Gross margin by product at 55% utilisation, before Canada overhead</h4>
+ <div class="cap">Property and one-off travel work beat every care tier, and they do it without the 3am exposure.</div>
+ ${MARG.map(m=>`<div class="hbar"><div class="t">${m[0]}</div><div class="b ${m[2]}" data-w="${m[1]}%">${m[1]}%</div></div>`).join("")}</div>`;
+watch($("marginChart").firstElementChild);
+
+(function(){
+  const pts=[[30,79],[40,76],[50,72],[60,68],[70,64],[80,60],[90,57],[100,55]];
+  const W=700,H=260,pad=44;
+  const x=v=>pad+(v-30)/70*(W-pad-20), y=v=>H-pad-(v-50)/32*(H-pad-24);
+  const line=pts.map((p,i)=>(i?"L":"M")+x(p[0]).toFixed(1)+" "+y(p[1]).toFixed(1)).join(" ");
+  $("utilChart").innerHTML=`<div class="chart"><h4>Blended gross margin against quota utilisation</h4>
+  <div class="cap">The gap between what a tier allows and what a customer actually uses is most of the real margin. This is why utilisation must be measured before final prices are set.</div>
+  <div class="scroll"><svg viewBox="0 0 ${W} ${H}" style="display:block;min-width:560px;width:100%;height:auto">
+   <defs><style>.ax2{stroke:var(--rule)}.tl{font-family:"IBM Plex Sans",sans-serif;font-size:11px;fill:var(--ink2)}
+
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--lapis)" stop-opacity=".28"/><stop offset="100%" stop-color="var(--lapis)" stop-opacity="0"/></linearGradient></defs>
+   ${[50,60,70,80].map(v=>`<line class="ax2" x1="${pad}" y1="${y(v)}" x2="${W-20}" y2="${y(v)}" stroke-dasharray="3 5"/><text class="tl" x="8" y="${y(v)+4}">${v}%</text>`).join("")}
+   ${[30,50,70,90,100].map(v=>`<text class="tl" x="${x(v)}" y="${H-16}" text-anchor="middle">${v}%</text>`).join("")}
+   <path d="${line} L${x(100)} ${H-pad} L${x(30)} ${H-pad} Z" fill="url(#fill)"/>
+   <path d="${line}" fill="none" stroke="var(--lapis)" stroke-width="2.5"/>
+   ${pts.map(p=>`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="3.5" fill="var(--lapis)"/>`).join("")}
+   <text class="tl" x="${W-20}" y="${H-2}" text-anchor="end">quota utilisation</text>
+  </svg></div></div>`;
+})();
+
+/* ---------- 12 revenue chart ---------- */
+(function(){
+  const q=[[0.6,0,0.2],[1.2,0.3,0.3],[1.9,0.5,0.4],[2.8,0.8,0.5],[4.0,1.4,0.7],[5.5,2.2,1.0],
+           [7.2,3.2,1.3],[9.2,4.4,1.7],[12,6.8,2.2],[16,9.8,2.9],[20,13.5,3.6],[25,17.4,4.5]];
+  const labels=["Q1","Q2","Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10","Q11","Q12"];
+  const max=Math.max(...q.map(r=>r[0]+r[1]+r[2]));
+  $("revChart").innerHTML=`<div class="chart"><h4>Monthly recurring revenue by stream, twelve quarters</h4>
+   <div class="cap">Illustrative build from the assumptions in section 11. Subscriptions in blue, property doors in teal, one-off jobs and overage in amber. Quarter 12 sits near $47k a month, about $565k annualised.</div>
+   <div class="scroll"><div style="display:flex;gap:8px;align-items:flex-end;height:230px;min-width:560px">
+   ${q.map((r,i)=>{ const t=r[0]+r[1]+r[2];
+     return `<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%">
+      <div class="small" style="text-align:center;font-size:11px;margin-bottom:4px">$${t.toFixed(0)}k</div>
+      <div data-w="100%" style="width:0;transition:width .9s ${i*60}ms ease-out">
+        <div style="height:${r[2]/max*180}px;background:var(--saffron)"></div>
+        <div style="height:${r[1]/max*180}px;background:var(--turq)"></div>
+        <div style="height:${r[0]/max*180}px;background:var(--lapis)"></div>
+      </div>
+      <div class="small" style="text-align:center;font-size:11px;margin-top:6px">${labels[i]}</div></div>`;}).join("")}
+   </div></div></div>`;
+  watch($("revChart").firstElementChild);
+})();
+
+/* ---------- 12 scenario grid ---------- */
+const RATE={price:{voice:19,visit:45,watch:95,vigil:175},hrs:{voice:1.1,visit:4.7,watch:12.1,vigil:25.9},
+ doorW:[39,1.5],doorR:[65,3],module:[15,0.5],ooG:[25,1],ooS:[58,2.75],ooX:[90,1.5],matter:[250,2],pack:[95,5],
+ overageShare:0.12,overagePerHr:10,hourly:3};
+const OVH={s:[600,300],m:[2500,1500],l:[7500,6000]};
+const SC={
+ s1:{scale:"s",title:"Care only, twenty-five families",fam:{voice:5,visit:12,watch:6,vigil:2},dW:0,dR:0,mod:2,ooG:4,ooS:2,ooX:0,mat:0,pack:0.5,
+   note:"The plan as originally imagined, at pilot size. It works, it is emotionally the right starting point, and it is also the shape that earns least per manager hour and carries every piece of clinical and reputational risk in the catalogue. A single bad night can end it.",
+   demands:"Two managers, a rehearsed emergency protocol, and a founder answering the phone personally."},
+ s2:{scale:"s",title:"Small but mixed",fam:{voice:3,visit:7,watch:4,vigil:1},dW:8,dR:12,mod:8,ooG:12,ooS:6,ooX:1,mat:1,pack:2,
+   note:"Fewer families, twenty doors and a steady trickle of one-off work. Almost the same revenue as the care-only book on half the emotional load, because doors and errands batch and never call at night. This is the shape to aim the pilot at.",
+   demands:"The same two managers, plus a contractor list and a landlord-facing page. No extra clinical capability at all."},
+ s3:{scale:"s",title:"Few clients, high value",fam:{visit:1,watch:2,vigil:3},dW:0,dR:6,mod:3,ooG:2,ooS:3,ooX:2,mat:4,pack:3,
+   note:"Six families, mostly on the top tier, plus legal matters and arrival packs. Strong revenue per client and a dangerous concentration: two cancellations is a third of the book, and it depends on notary and accountancy partners you do not yet have.",
+   demands:"A notary and an accountant under contract before the first sale, and two managers for six families because top-tier accounts cannot share one."},
+ m1:{scale:"m",title:"Care only, ninety families",fam:{voice:10,visit:40,watch:30,vigil:10},dW:0,dR:0,mod:6,ooG:15,ooS:8,ooX:0,mat:0,pack:3,
+   note:"A real care company. Also a hiring machine: nearly every dollar of growth converts into another trained, supervised manager in Tehran, which is the slowest thing this business does.",
+   demands:"An operations lead, a training programme, quality sampling, and a second city to recruit from."},
+ m2:{scale:"m",title:"Medium, mixed",fam:{voice:6,visit:26,watch:22,vigil:6},dW:45,dR:75,mod:30,ooG:45,ooS:20,ooX:5,mat:6,pack:8,
+   note:"Sixty families and a hundred and twenty doors. Property overtakes care as the largest revenue line here, and blended margin improves while the clinical exposure stays flat. This is the intended Phase 3–4 destination.",
+   demands:"The remittance question answered by counsel, a property funnel of its own, and an operations lead who understands buildings as well as people."},
+ m3:{scale:"m",title:"Medium, high value",fam:{visit:3,watch:10,vigil:12},dW:0,dR:40,mod:12,ooG:10,ooS:12,ooX:8,mat:15,pack:10,
+   note:"Twenty-five families, all senior, plus fifteen legal matters a month. High revenue per account and the highest dependence on third parties: your margin is partly a notary's calendar and partly an accountant's attention.",
+   demands:"Formal partnership agreements, matter-level project tracking, and enough liability cover to sleep."},
+ l1:{scale:"l",title:"Care only, three hundred families",fam:{voice:25,visit:105,watch:125,vigil:45},dW:0,dR:0,mod:20,ooG:40,ooS:20,ooX:0,mat:0,pack:8,
+   note:"The care-only version of the base case. Note the manager count: it is the number that should stop you, not the revenue. Thirty-plus named managers in one city is a staffing organisation with a service attached.",
+   demands:"Two operations leads, a recruitment pipeline, and a real HR function in Tehran."},
+ l2:{scale:"l",title:"Large, mixed — the base case",fam:{voice:24,visit:105,watch:126,vigil:45},dW:120,dR:180,mod:60,ooG:60,ooS:25,ooX:8,mat:8,pack:12,
+   note:"Three hundred families and three hundred doors — the Year 3 column of the projection above. It lands about 10% higher here because the one-off jobs, modules and matters are itemised rather than folded into a flat 18% assumption, which is the more honest way to read it and the less conservative one. The one-off and module lines together earn more than the two entry tiers combined.",
+   demands:"Everything in the medium mixed column, plus a second country entity if growth is to continue past this point."},
+ l3:{scale:"l",title:"Large, high value",fam:{visit:10,watch:30,vigil:40},dW:0,dR:200,mod:60,ooG:40,ooS:40,ooX:30,mat:50,pack:30,
+   note:"Eighty families, two hundred tenanted doors and fifty matters a month. The best revenue per manager in the grid and the most fragile: it is a professional-services firm whose supply is a handful of licensed partners in Tehran.",
+   demands:"Multiple notary and accountancy partners so no single relationship is load-bearing, and a compliance function rather than a policy document."}};
+function runScenario(k){
+  const x=SC[k], R=RATE;
+  const subs=Object.entries(x.fam||{}).reduce((a,[t,n])=>a+n*R.price[t],0);
+  const famHrs=Object.entries(x.fam||{}).reduce((a,[t,n])=>a+n*R.hrs[t],0);
+  const overage=subs*R.overageShare;
+  const doors=x.dW*R.doorW[0]+x.dR*R.doorR[0];
+  const mods=x.mod*R.module[0];
+  const oneoff=x.ooG*R.ooG[0]+x.ooS*R.ooS[0]+x.ooX*R.ooX[0];
+  const matters=x.mat*R.matter[0];
+  const packs=x.pack*R.pack[0];
+  const rev=subs+overage+doors+mods+oneoff+matters+packs;
+  const hrs=famHrs+x.dW*R.doorW[1]+x.dR*R.doorR[1]+x.mod*R.module[1]
+    +x.ooG*R.ooG[1]+x.ooS*R.ooS[1]+x.ooX*R.ooX[1]+x.mat*R.matter[1]+x.pack*R.pack[1]+overage/R.overagePerHr;
+  const tehran=hrs*R.hourly, mgrs=Math.ceil(hrs/120);
+  const [ovh,mkt]=OVH[x.scale], fees=rev*0.03;
+  const cost=tehran+ovh+fees+mkt;
+  const fams=Object.values(x.fam||{}).reduce((a,b)=>a+b,0);
+  return {x,subs,overage,doors,mods,oneoff,matters,packs,rev,hrs,tehran,mgrs,ovh,mkt,fees,cost,
+    net:rev-cost,gm:(rev-tehran)/rev*100,nm:(rev-cost)/rev*100,fams,doorsN:x.dW+x.dR,revPerMgr:rev/Math.max(mgrs,1)};
+}
+const SROWS=[["s","Side project","one city, founder part-time"],["m","Growing","two to four cities, an ops lead"],["l","At scale","multi-city or multi-country"]];
+const SCOLS=[["1","Care only","families and nothing else"],["2","Mixed","care, property, errands, one-off"],["3","High value","few clients, senior tiers, legal matters"]];
+let sPick="m2";
+function drawSGrid(){
+  $("sgrid").innerHTML = `<div></div>${SCOLS.map(c=>`<div class="hd"><b style="color:var(--ink);font-size:13.5px">${c[1]}</b><br>${c[2]}</div>`).join("")}`
+   + SROWS.map(r=>`<div class="rh">${r[1]}<span>${r[2]}</span></div>`+SCOLS.map(c=>{
+      const k=r[0]+c[0], o=runScenario(k);
+      return `<button class="scell" data-s="${k}" aria-pressed="${sPick===k}">
+        <div class="mrr">${money(o.rev)}<span style="font-size:12px;color:var(--ink2)">/mo</span></div>
+        <div class="sub">${o.fams} famil${o.fams===1?"y":"ies"}${o.doorsN?" · "+o.doorsN+" doors":""}<br>${o.mgrs} manager${o.mgrs>1?"s":""} · ${money(o.revPerMgr)} per manager</div>
+        <div class="gm">${o.nm.toFixed(0)}% net, after everything</div></button>`;
+     }).join("")).join("");
+  drawSDetail();
+}
+function drawSDetail(){
+  const o=runScenario(sPick), l=(a,b,c)=>`<div class="sdl ${c||""}"><span>${a}</span><b>${b}</b></div>`;
+  $("sdetail").innerHTML=`<div class="sdetail">
+    <h4>${o.x.title}</h4>
+    <p class="small">${o.x.note}</p>
+    <div class="grid2" style="margin-top:14px">
+      <div>
+        <div class="small" style="color:var(--ink2);margin-bottom:4px">Revenue, per month</div>
+        ${l("Subscriptions",money(o.subs))}
+        ${l("Overage, 12% of subscriptions",money(o.overage))}
+        ${o.doors?l(`Property — ${o.x.dW} empty at $39, ${o.x.dR} tenanted at $65`,money(o.doors)):""}
+        ${o.mods?l(`Small modules — ${o.x.mod} at $15`,money(o.mods)):""}
+        ${o.oneoff?l(`One-off jobs — ${o.x.ooG+o.x.ooS+o.x.ooX} a month`,money(o.oneoff)):""}
+        ${o.matters?l(`Legal and estate matters — ${o.x.mat} a month`,money(o.matters)):""}
+        ${o.packs?l(`Seasonal and arrival packs — ${o.x.pack} a month`,money(o.packs)):""}
+        ${l("<b>Total revenue</b>",money(o.rev),"tot")}
+      </div>
+      <div>
+        <div class="small" style="color:var(--ink2);margin-bottom:4px">Cost, per month</div>
+        ${l(`Tehran — ${o.hrs.toFixed(0)} agent hours at $3`,money(o.tehran))}
+        ${l(`Care managers required`,o.mgrs)}
+        ${l("Canada overhead",money(o.ovh))}
+        ${l("Card fees at 3%",money(o.fees))}
+        ${l("Marketing",money(o.mkt))}
+        ${l("<b>Total cost</b>",money(o.cost),"tot")}
+        ${l("<b>Net, founder unpaid</b>",money(o.net),"tot")}
+        ${l("Gross margin on delivery",o.gm.toFixed(0)+"%")}
+        ${l("Revenue per manager",money(o.revPerMgr))}
+      </div>
+    </div>
+    <div class="note" style="margin:16px 0 0"><b>What this shape demands.</b> ${o.x.demands}</div>
+  </div>`;
+}
+drawSGrid();
+$("sgrid").addEventListener("click",e=>{const b=e.target.closest(".scell"); if(!b) return;
+  sPick=b.dataset.s; drawSGrid(); $("sdetail").scrollIntoView({block:"nearest",behavior:REDUCED?"auto":"smooth"});});
+
+/* ---------- 13 KPIs ---------- */
+const KPI=[["Quota utilisation by class","40–70%","The most important number in the model. Below 40% the tiers are over-provisioned and quotas could rise or price could fall. Above 90% there is a margin leak. Nothing else tells you as much about whether pricing is right."],
+["Parent-gate pass rate",">70%","Below this, the product or the framing is wrong — not the marketing."],
+["Time to first completed visit","<7 days","The activation moment. Every day of delay measurably raises early churn."],
+["On-time report delivery",">95%","The report is the product. A late one is a broken promise even when the care was perfect."],
+["Emergency response against tier target",">90% met","The one commitment you cannot miss twice. Measure from first contact, not from dispatch."],
+["Net promoter, child and parent separately","both >40","Measuring only the payer hides the churn cause. A happy child and an unhappy parent is a cancelling account."],
+["Referral rate per retained account",">0.3 / year","The only channel that makes the unit economics work at small scale."],
+["Pool fill rate and time to claim",">90%, under 4 hrs","A task posted to the internal pool and unclaimed is a promise about to be broken. Measure both the fill rate and the median time to claim; the second one moves first when Tehran capacity is getting tight."],
+["Hand-off share per manager","10–30%","Below 10% and the pool is not being used, which means tasks are being quietly refused or delayed instead. Above 30% and the named-manager promise is decorative. Track quality separately for owned and handed-off tasks."],
+["Share of the book on Watch or above",">35%","A book dominated by the two cheap tiers does not cover Canada-side overhead."]];
+$("kpis").innerHTML = KPI.map(k=>`<div class="kpi"><div class="t">${k[0]}</div><div class="g">${k[1]}</div><div class="w">${k[2]}</div></div>`).join("");
+
+/* ---------- 16 roadmap ---------- */
+const RM=[["Phase 0","Month 1","Validate before spending","Twenty interviews, price sensitivity across all four tiers, a fake-door test on the one-off menu, and verification of the $360 care-manager cost. Nothing else starts until these land.",18],
+["Phase 1","Months 2–4","Pilot, and the cheap families with it","Canadian entity, two to three managers, five to ten pilot families on the elder-care protocol. Add the errand and occasions categories now rather than in year two — same agent, near-zero marginal cost, a visible deliverable within days, and they generate the referral conversations the pilot needs. Open the remittance legal workstream in parallel.",34],
+["Phase 2","Months 5–8","Revenue launch","Full four-tier structure, published overage, the one-off menu and credit strips live. Build the internal task pool with the commission split — the first piece of real software in the business. Measure quota utilisation from day one, and cap the top tier at 15% of the book.",50],
+["Phase 3","Months 9–12","Property, the margin step","Launch the door module and expand beyond Tehran. Excludes cross-border remittance until counsel clears it. This is where blended margin improves, not just revenue.",68],
+["Phase 4","Year 2","Travel, household, wider dependents","Travel concierge, household support, education, and the wider-family health follow-up that uses the same operational muscle.",84],
+["Phase 5","Post-brand","Legal, registry, complex financial","Correctly placed last. Requires a formal partnership with a licensed notary and accountancy practice before any of it is offered.",100]];
+$("roadmap").innerHTML = RM.map(r=>`<div class="rm">
+  <div class="ph">${r[0]}<span>${r[1]}</span></div>
+  <div><div class="bar" data-w="${r[4]}%" style="width:0"></div>
+    <h4>${r[2]}</h4><p class="small" style="margin:0">${r[3]}</p></div></div>`).join("");
+watch($("roadmap"));
+
+/* ---------- 18 naming table ---------- */
+$("namingTable").innerHTML = `<thead><tr><th>Customer-facing name</th><th>Operational family</th><th>Services</th><th>Delivery mix</th></tr></thead><tbody>`
+ + ORDER.map(j=>{const b=byJob[j];
+   return `<tr><td><b class="pat">${JOBS[j][0]}</b><br><span class="small">${JOBS[j][1]}</span></td>
+   <td class="small">${{j1:"Elder daily care, companionship, dependents",j2:"Medical care coordination",j3:"Emergency response",
+     j4:"Cognitive, mental health, palliative, end of life",j5:"Real estate and property management",j6:"Low-risk administration",
+     j7:"Occasions, household, education",j8:"Travel and repatriation concierge",j9:"Legal, registry, financial follow-up"}[j]}</td>
+   <td>${b.n}</td><td class="small">${b.g?b.g+"G ":""}${b.s?b.s+"S ":""}${b.x?b.x+"X":""}</td></tr>`;}).join("")
+ + `<tr><td><b class="pat">${JOBS.j0[0]}</b><br><span class="small">${JOBS.j0[1]}</span></td><td class="small">Platform layer</td><td>9</td><td class="small">included</td></tr></tbody>`;
+
+/* ---------- catalogue: tree view ---------- */
+const DOMAINS=[["Domain A — people","Person-bound, recurring, tied to a named individual. Drives subscription revenue and emotional retention.",["j1","j2","j3","j4"]],
+ ["Domain B — assets and admin","Not person-bound. Property, paperwork, occasions and travel. Where scale and margin sit.",["j5","j6","j7","j8","j9"]],
+ ["Domain C — the platform","Included in every tier, never metered. The reason any of the above is worth paying for.",["j0"]]];
+const dot=c=>`<span class="dot" style="background:var(--${c})"></span>`;
+function buildTree(){
+  $("tree").innerHTML = DOMAINS.map(([dn,dd,js])=>{
+    const rows=D.filter(r=>js.includes(r[2]));
+    return `<details><summary>${dn}<span class="cnt">${rows.length} services</span></summary>
+     <div class="kids"><p class="small" style="margin:2px 0 8px">${dd}</p>
+     ${js.map(j=>{
+       const jr=sortRows(D.filter(r=>r[2]===j)), b=byJob[j];
+       const mix=`<span class="mix">${b.g?dot("g"):""}${b.s?dot("s"):""}${b.x?dot("x"):""}</span>`;
+       return `<details><summary class="pat">${JOBS[j][0]}${mix}<span class="cnt">${b.n}</span></summary>
+        <div class="kids"><p class="small" style="margin:2px 0 8px">${JOBS[j][1]}</p>
+        ${["g","s","x"].map(c=>{
+          const cr=jr.filter(r=>r[3]===c); if(!cr.length) return "";
+          return `<details><summary>${dot(c)} ${CLS[c]}<span class="cnt">${cr.length} · ${c==="g"?"any vetted agent":c==="s"?"the named manager":"qualified or partner"}</span></summary>
+           <div class="kids">${cr.map(r=>`<div class="svc"><b>${r[0]}</b><span class="sub">${r[1]}</span>${r[5]?`<span class="cav">${r[5]}</span>`:""}</div>`).join("")}</div></details>`;
+        }).join("")}</div></details>`;
+     }).join("")}</div></details>`;
+  }).join("");
+}
+buildTree();
+$("treeControls").innerHTML=`<button class="f" id="expandAll">Open everything</button><button class="f" id="collapseAll">Close everything</button><span class="small" style="align-self:center">${D.length} services · ${DOMAINS.length} domains · ${ORDER.length+1} categories</span>`;
+$("expandAll").onclick=()=>document.querySelectorAll("#tree details").forEach(d=>d.open=true);
+$("collapseAll").onclick=()=>document.querySelectorAll("#tree details").forEach(d=>d.open=false);
+document.querySelectorAll("#tree > details").forEach((d,i)=>{ if(i===0) d.open=true; });
+$("viewToggle").innerHTML=`<button class="f" data-v="tree" aria-pressed="true">Tree view</button><button class="f" data-v="table" aria-pressed="false">Table view</button>`;
+$("viewToggle").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+  const tree=b.dataset.v==="tree";
+  $("treeView").hidden=!tree; $("tableView").hidden=tree;
+  [...$("viewToggle").querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",x===b));});
+
+/* ---------- catalogue filters ---------- */
+let fJob="all", fCls="all";
+const mkFilter=(id,items,get,set)=>{
+  const el=$(id);
+  el.innerHTML=items.map(([v,l])=>`<button class="f" data-v="${v}" aria-pressed="${v===get()}">${l}</button>`).join("");
+  el.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;set(b.dataset.v);
+    [...el.querySelectorAll("button")].forEach(x=>x.setAttribute("aria-pressed",x===b));drawTable();});
+};
+function drawTable(){
+  const rows=sortRows(D.filter(r=>(fJob==="all"||r[2]===fJob)&&(fCls==="all"||r[3]===fCls)));
+  $("tbody").innerHTML=rows.map(r=>`<tr><td><b class="pat">${r[0]}</b><br><span class="small">${JOBS[r[2]][0]}</span></td>
+   <td class="small">${r[1]}</td><td><span class="tag ${r[3]}">${CLS[r[3]]}</span></td>
+   <td class="small">${WAVES[r[4]][0]}</td><td class="small" style="color:var(--madder)">${r[5]}</td></tr>`).join("");
+  $("tableCount").textContent=`${rows.length} of ${D.length} services shown.`;
+}
+mkFilter("jobFilter",[["all","Every category"],...ORDER.map(j=>[j,JOBS[j][0]]),["j0","Platform layer"]],()=>fJob,v=>fJob=v);
+mkFilter("classFilter",[["all","Every class"],["g","General"],["s","Semi-special"],["x","Special"]],()=>fCls,v=>fCls=v);
+drawTable();
+document.querySelectorAll("section").forEach(watch);
+</script>
+</body>
+</html>
